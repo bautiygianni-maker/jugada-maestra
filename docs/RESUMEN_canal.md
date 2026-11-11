@@ -2,6 +2,11 @@
 
 Última actualización: 9 de noviembre de 2026 (noche).
 
+> **Desde el 11/11/2026 el sistema de producción vive en GitHub: `bautiygianni-maker/jugada-maestra` (privado).**
+> El chat del proyecto hace ideas y guiones (`guion.json` + `claves.json`); Claude Code produce con `python pipeline/producir.py shorts/NN_tema`.
+> Los scripts sueltos del proyecto (`render.py`, `audio.py`, etc.) quedan como historial: la versión vigente es la del repositorio.
+> Short #2 (Hermès Birkin) terminado: `shorts/02_birkin`. Próximo: Short #3 con una mejora de `docs/ROADMAP_calidad.md`.
+
 ## 1. El canal
 - **Nombre:** Jugada Maestra (descartado "Detrás de la Marca" porque ya existe "Detrás de la Etiqueta").
 - **Nicho:** "Negocios y marcas explicadas". Shorts que cuentan por qué una empresa hace algo raro o cómo resolvió un problema con una jugada ingeniosa. Más adelante, videos largos de "Historias de productos y empresas" en el mismo canal.
