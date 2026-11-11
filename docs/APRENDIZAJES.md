@@ -8,6 +8,10 @@ Formato: regla concreta · por qué · origen.
 - **Arco completo en cada Short:** Hook (0–3 s, la paradoja) → Conflicto (por qué parece absurdo o qué está en juego) → Clímax (la revelación o el número más fuerte) → Payoff (la jugada explicada en una frase memorable) → pregunta final. · Pedido del usuario. · Short #2
 - Antes de producir, escribir el guion como cadena de beats "PERO / ENTONCES" y verificar que no haya ningún "y después". · Short #2
 
+## Hook (obligatorio desde el Short #3)
+- **El hook abre una brecha de curiosidad:** muestra algo que el espectador cree entender y le agrega una contradicción que no puede resolver solo ("casi no gana nada con esto... y es su mejor arma"). Tiene que dar ganas de saber el porqué, no dar el dato completo. · Pedido del usuario. · Short #3
+- **Se entiende en los primeros 3 segundos:** frase de 8 a 12 palabras, sin números largos ni contexto previo, y la imagen dice lo mismo que la voz desde el primer cuadro. Los datos (años, precios) van después, en el conflicto. · Pedido del usuario. · Short #3
+
 ## Ritmo visual y sonoro (obligatorio desde el Short #2)
 - **Cambio visual cada 1 a 2 segundos** como máximo (entra un elemento, cambia el plano, zoom, corte, número que cambia). Ningún encuadre estático más de 2 s. · Pedido del usuario. · Short #2
 - **Un efecto de sonido por cada evento visual** (aparición, golpe de texto, número, corte). Si algo se mueve en pantalla, suena. · Pedido del usuario. · Short #2
@@ -27,6 +31,7 @@ Formato: regla concreta · por qué · origen.
 
 ## Guion e idioma
 - Español neutro: nada de voseo ni argentinismos ("tú pides", "dinero", "me infiltré", "te la entregan"). · El público es toda LATAM. · Short #1
+- **Vocabulario neutro, nunca regional:** "perro caliente" (no pancho/jocho/completo), "refresco" (no gaseosa/soda), "autos", "dinero". Ante la duda, la palabra que se entiende en toda Latinoamérica. · Pedido del usuario. · Short #3
 - Números de la voz escritos en letras ("dos mil veinticinco"). · Chatterbox los lee mejor. · Short #1
 - No inventar frases de personas reales; las "reglas" atribuidas deben estar documentadas. · Política de YouTube y credibilidad. · Short #1
 
