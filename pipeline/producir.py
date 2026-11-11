@@ -24,7 +24,7 @@ ap.add_argument("--salida", help="nombre del MP4 final (por defecto <carpeta>_ES
 a = ap.parse_args()
 
 os.chdir(a.carpeta)
-nombre = a.salida or f"{Path(a.carpeta).name}_ES.mp4"
+nombre = a.salida or f"{Path(a.carpeta).resolve().name}_ES.mp4"
 G = json.load(open("guion.json", encoding="utf-8"))
 py = sys.executable
 

@@ -56,7 +56,9 @@ def norm(t, invertir=False):
     return re.sub(r"[^a-z0-9 ]", " ", t.replace(".", "")).split()
 
 
-ref, hyp = norm(" ".join(G["es"]), True), norm(txt)
+# grafías de Whisper para marcas (ej. "Cosco" por "Costco"); solo si las líneas sueltas ya transcriben bien la marca
+alias = G.get("alias_asr", {})
+ref, hyp = norm(" ".join(G["es"]), True), [alias.get(w, w) for w in norm(txt)]
 d = np.arange(len(hyp) + 1)
 for i, r in enumerate(ref, 1):
     p, d[0] = d.copy(), i

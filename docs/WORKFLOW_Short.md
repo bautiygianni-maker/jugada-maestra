@@ -23,7 +23,7 @@ y al terminar se actualiza con lo que el usuario corrigió.
 
 ## Etapa 3: Producción (Claude Code)
 1. `mkdir shorts/NN_tema` con `guion.json` y `claves.json`.
-2. Escribir `video.html` partiendo del último Short (hoy `shorts/02_birkin/video.html`): 7 `<section class="scene" data-start data-end>`, cada elemento animado con `data-sfx`, Tano desde `assets/tano.js`.
+2. Escribir `video.html` partiendo del último Short (hoy `shorts/03_costco/video.html`, que ya trae viñeta, grano, glow y cámara): 7 `<section class="scene" data-start data-end>`, cada elemento animado con `data-sfx`, Tano desde `assets/tano.js`.
 3. **Capturas de prueba antes del render:** `python ../../pipeline/preview.py video.html 0.5,1.5,... prev.jpg` y mirarlas.
 4. `python pipeline/producir.py shorts/NN_tema` (voz → armado → sincronía → render → sonido → mezcla → qc).
 5. Si alguna línea tiene error de voz en todas las tomas: `python ../../pipeline/voz_lineas.py N 11,23` y repetir desde `armar_voz`.

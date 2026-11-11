@@ -1,0 +1,37 @@
+{
+ "tema": "El perro caliente de Costco",
+ "es": [
+  "Costco pierde dinero cada vez que vende este perro caliente... y es su mejor estrategia.",
+  "Así que me infiltré en Costco para entender por qué.",
+  "Pero cuesta un dólar con cincuenta desde mil novecientos ochenta y cuatro. Con la inflación, hoy serían más de cuatro dólares.",
+  "Por eso, en dos mil trece, el jefe de Costco quiso subirlo... y el fundador le dijo: si subes el precio, te mato. Arréglalo.",
+  "Así que cambiaron de refresco para ahorrar... y empezaron a fabricar sus propias salchichas.",
+  "¿Tanto esfuerzo? Porque el negocio no es el perro caliente: en dos mil veinticinco, Costco cobró más de cinco mil millones de dólares solo en membresías.",
+  "Por eso vende doscientos cuarenta y cinco millones de combos al año. Costco no vende perros calientes. Vende la razón para volver."
+ ],
+ "en": [
+  "Costco loses money every time it sells this hot dog... and it's their best move.",
+  "So I snuck into Costco to find out why.",
+  "But it's cost a dollar fifty since nineteen eighty-four. With inflation, it would be over four dollars today.",
+  "So in twenty thirteen, Costco's boss wanted to raise it... and the founder told him: if you raise the price, I'll kill you. Figure it out.",
+  "So they switched sodas to save money... and started making their own hot dogs.",
+  "All that effort? Because the business isn't the hot dog: in twenty twenty-five, Costco collected over five billion dollars just in memberships.",
+  "That's why it sells two hundred forty-five million combos a year. Costco doesn't sell hot dogs. It sells a reason to come back."
+ ],
+ "numeros": {
+  "1984": "mil novecientos ochenta y cuatro",
+  "2013": "dos mil trece",
+  "2025": "dos mil veinticinco",
+  "245": "doscientos cuarenta y cinco",
+  "1,50": "uno con cincuenta",
+  "1.50": "uno con cincuenta",
+  "4": "cuatro",
+  "5000": "cinco mil",
+  "5.000": "cinco mil",
+  "50": "cincuenta",
+  "5": "cinco"
+ },
+ "alias_asr": {
+  "cosco": "costco"
+ }
+}

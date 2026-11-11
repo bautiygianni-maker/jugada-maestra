@@ -25,6 +25,9 @@ Formato: regla concreta · por qué · origen.
 - Música: Kevin MacLeod (incompetech.com, CC BY 4.0), volumen 0,10 con sidechain suave. **Crédito obligatorio en la descripción.** Temas "virales" de Shorts solo se pueden agregar desde la app de YouTube al subir. · Short #2
 - Nombres de marca: Whisper puede oír "el mes" por "Hermès". Si una toma falla solo en la marca, generar 2 semillas más (`voz_lineas.py 2,7 11,23`) antes de aceptarla. · Short #2
 
+- Whisper escribe "Cosco" por "Costco" en el video mezclado aunque las líneas sueltas digan "Costco". Si la marca se transcribe bien en las líneas sueltas, se agrega el alias en `guion.json` (`"alias_asr": {"cosco": "costco"}`) para que `qc.py` no lo cuente como error. Nunca subir el umbral del 5 %. · Short #3
+- `numeros` en `guion.json` cubre también las partes sueltas que Whisper escribe en cifras ("un dólar con 50", "5 mil"). · Short #3
+
 ## Animación (errores técnicos)
 - Una animación de salida (`hide`) debe usar `forwards`, nunca `both`: con `both` el elemento queda visible antes de su entrada. · Encontrado en el Short #2 (también afectaba la plantilla de Ferrari). · Short #2
 - Revisar siempre capturas de prueba (`preview.py`) antes del render completo. · Short #2
@@ -47,4 +50,6 @@ Formato: regla concreta · por qué · origen.
 - Música a 0,28 (no 0,55) y sidechain suave (ratio 3, release 400 ms). · La música tapaba la voz y "bombeaba". · Short #1 v1
 
 ## Video
+- Look del canal desde el Short #3: paleta propia por Short, viñeta (`#vig`) y grano (`#grain`, se mueve cada cuadro) encima de todo, `.glow` en el número clave de cada escena y zoom lento de cámara (`.cam`) en cada escena. · Roadmap #1 · Short #3
+- Elementos que entran con transformaciones 3D (`cardFlip`) o que son fondos fijos de una parte de la escena llevan `show` con su retraso: con `both` se ven de canto o antes de tiempo. · Capturas de prueba · Short #3
 - 30 fps, 1080×1920, crf 18. Inter Black para textos. · Short #1

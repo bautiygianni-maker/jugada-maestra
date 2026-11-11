@@ -15,8 +15,8 @@ Lo que hace bien y nosotros no (las técnicas se adoptan; su personaje y su est�
 ## Mejoras, en orden sugerido
 | # | Mejora | Esfuerzo | Estado |
 |---|---|---|---|
-| 1 | **Look cinematográfico:** paleta por Short, glow en elementos clave, viñeta, grano sutil, sombras suaves (CSS filters / capas) | Bajo | pendiente |
-| 2 | **Cámara:** zoom lento continuo por escena, paneos, desenfoque de fondo (DOF) al destacar un objeto | Bajo | pendiente |
+| 1 | **Look cinematográfico:** paleta por Short, glow en elementos clave, viñeta, grano sutil, sombras suaves (CSS filters / capas) | Bajo | **hecho · Short #3** (paleta ketchup/mostaza, `.glow`, `#vig`, `#grain`, `.soft`) |
+| 2 | **Cámara:** zoom lento continuo por escena, paneos, desenfoque de fondo (DOF) al destacar un objeto | Bajo | parcial · Short #3 (zoom lento `.cam` por escena; falta paneo y DOF) |
 | 3 | **Transiciones:** glitch/RGB-split, whip-pan con desenfoque de movimiento, match-cut | Bajo | pendiente |
 | 4 | **Tano en partes (rig):** cabeza, ojos (parpadeo), cejas, boca (abre/cierra con la voz), brazos, piernas, cola | Alto, una vez | pendiente |
 | 5 | **Tano actúa:** poses (señalar, sorpresa, pensar, celebrar), caminar, globos de pensamiento | Medio | pendiente |
