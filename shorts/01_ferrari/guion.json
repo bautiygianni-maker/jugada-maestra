@@ -1,0 +1,20 @@
+{
+ "tema": "Ferrari",
+ "nota": "Short #1, producido con la plantilla v1 (sin data-sfx ni anclas; audio con audio_legacy.py). Archivo histórico.",
+ "es": [
+  "¡Ferrari podría vender el doble de autos... y no quiere!",
+  "Así que me infiltré en Ferrari, para descubrir por qué.",
+  "En dos mil veinticinco vendió ciento doce autos menos... y aun así, ganó más dinero.",
+  "Si hoy pides una Ferrari... está agotada hasta dos mil veintisiete. Te llega en dos mil veintiocho.",
+  "¿Por qué? Por una regla de Enzo Ferrari: vender siempre un auto menos de lo que pide el mercado.",
+  "Si sobran Ferraris, valen menos. Si faltan... la gente espera años, y paga lo que sea.",
+  "Ferrari no vende autos. Vende espera. ¿Tú esperarías dos años?"
+ ],
+ "numeros": {
+  "2025": "dos mil veinticinco",
+  "2027": "dos mil veintisiete",
+  "2028": "dos mil veintiocho",
+  "112": "ciento doce",
+  "2": "dos"
+ }
+}

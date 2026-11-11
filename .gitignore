@@ -1,0 +1,24 @@
+# Modelo de voz (~3 GB): lo baja setup/instalar.py
+modelos/
+
+# Archivos intermedios de cada Short (se regeneran con producir.py)
+shorts/*/linea*_s*.wav
+shorts/*/scene*.mp4
+shorts/*/video_mudo.mp4
+shorts/*/voz_es.wav
+shorts/*/sfx.wav
+shorts/*/musica.wav
+shorts/*/audio.wav
+shorts/*/cues.json
+shorts/*/timeline.json
+shorts/*/list.txt
+shorts/*/_*.wav
+shorts/*/_*.png
+shorts/*/prev_*.jpg
+shorts/*/prueba*.mp4
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.venv/

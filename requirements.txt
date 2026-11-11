@@ -1,0 +1,12 @@
+# Python 3.11 o 3.12 recomendado.
+# Con placa NVIDIA, instalar ANTES torch con CUDA (lo hace setup/instalar.py):
+#   pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+chatterbox-tts==0.1.7
+faster-whisper==1.2.1
+playwright==1.63.0
+librosa==0.11.0
+soundfile==0.14.0
+pillow
+pyarrow
+pandas
+huggingface_hub
