@@ -12,6 +12,29 @@ Lo que hace bien y nosotros no (las técnicas se adoptan; su personaje y su est�
 5. **Texto chico y dentro de la escena** (rótulos que señalan), no solo subtítulos gigantes.
 6. **Metáforas visuales simples:** una pelota que cae por una curva = "seguir es fácil".
 
+## Meta: animación cinematográfica adictiva
+El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una animación cinematográfica que enganche.
+"Cinematográfica" = personaje vivo + cámara + luz + transiciones + diseño de sonido.
+"Adictiva" = retención: algo nuevo cada 1–2 s, preguntas abiertas que se cierran tarde, final que conecta con el inicio.
+
+### Plan Short por Short (una o dos mejoras grandes por video)
+| Short | Mejoras | Estado |
+|---|---|---|
+| #3 Costco | Look (1) + zoom de cámara (2, parcial) + **biblioteca de sonidos Mixkit** | hecho |
+| #4 | **Tano en partes (4) + parpadeo + boca con la voz (6)**: el salto más grande, el personaje deja de ser una figura fija | próximo |
+| #5 | **Transiciones (3)** + cámara completa (2): paneo, desenfoque de fondo, whip-pan con whoosh | |
+| #6 | **Tano actúa (5)**: poses, caminar, reacciones; primer **escenario** reutilizable (7) | |
+| #7 | **Subtítulos palabra por palabra (9)** + retención (R1–R4) | |
+| #8 | Evaluar **Remotion (8)** con todo lo anterior | |
+
+### Retención (se suma en cualquier Short)
+| # | Técnica | Estado |
+|---|---|---|
+| R1 | **Loop:** la última frase empalma con la primera, así el Short se vuelve a ver | pendiente |
+| R2 | **Pregunta abierta temprana** ("y lo más raro viene al final") que se cierra en el clímax | pendiente |
+| R3 | **Interrupción de patrón** cada 3–5 s: cambio de fondo, zoom brusco, scratch, freeze-frame | pendiente |
+| R4 | Miniatura y primer cuadro iguales (la imagen del hook es la portada) | pendiente |
+
 ## Mejoras, en orden sugerido
 | # | Mejora | Esfuerzo | Estado |
 |---|---|---|---|

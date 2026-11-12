@@ -1,454 +1,797 @@
 {
- "whoosh": [
-  [
-   "swishes/swishes/swish-1.wav",
-   0.13,
-   1595
-  ],
-  [
-   "swishes/swishes/swish-10.wav",
-   0.12,
-   1834
-  ],
-  [
-   "swishes/swishes/swish-11.wav",
-   0.1,
-   1458
-  ],
-  [
-   "swishes/swishes/swish-12.wav",
-   0.08,
-   1383
-  ],
-  [
-   "swishes/swishes/swish-13.wav",
-   0.07,
-   1577
-  ],
-  [
-   "swishes/swishes/swish-2.wav",
-   0.1,
-   1040
-  ],
-  [
-   "swishes/swishes/swish-3.wav",
-   0.15,
-   1321
-  ],
-  [
-   "swishes/swishes/swish-4.wav",
-   0.15,
-   1221
-  ],
-  [
-   "swishes/swishes/swish-5.wav",
-   0.13,
-   1311
-  ],
-  [
-   "swishes/swishes/swish-6.wav",
-   0.14,
-   1404
-  ],
-  [
-   "swishes/swishes/swish-7.wav",
-   0.19,
-   1525
-  ],
-  [
-   "swishes/swishes/swish-8.wav",
-   0.15,
-   1148
-  ],
-  [
-   "swishes/swishes/swish-9.wav",
-   0.2,
-   1527
-  ]
- ],
- "pop": [
-  [
-   "100-CC0-SFX_0/plop_01.ogg",
-   0.19,
-   2242
-  ],
-  [
-   "100-CC0-SFX_0/plop_02.ogg",
-   0.23,
-   3126
-  ],
-  [
-   "kenney_interfaceSounds/Audio/drop_001.ogg",
-   0.11,
-   2987
-  ],
-  [
-   "kenney_interfaceSounds/Audio/drop_002.ogg",
-   0.19,
-   704
-  ],
-  [
-   "kenney_interfaceSounds/Audio/drop_003.ogg",
-   0.19,
-   615
-  ],
-  [
-   "kenney_interfaceSounds/Audio/drop_004.ogg",
-   0.29,
-   1144
-  ]
- ],
- "click": [
-  [
-   "kenney_interfaceSounds/Audio/click_001.ogg",
-   0.1,
-   2060
-  ],
-  [
-   "kenney_interfaceSounds/Audio/click_002.ogg",
-   0.01,
-   2353
-  ],
-  [
-   "kenney_interfaceSounds/Audio/click_003.ogg",
-   0.01,
-   2414
-  ],
-  [
-   "kenney_interfaceSounds/Audio/click_004.ogg",
-   0.01,
-   4197
-  ],
-  [
-   "kenney_interfaceSounds/Audio/click_005.ogg",
-   0.01,
-   1667
-  ]
- ],
- "tick": [
-  [
-   "kenney_interfaceSounds/Audio/tick_001.ogg",
-   0.02,
-   5357
-  ],
-  [
-   "kenney_interfaceSounds/Audio/tick_002.ogg",
-   0.02,
-   5288
-  ],
-  [
-   "kenney_interfaceSounds/Audio/tick_004.ogg",
-   0.05,
-   3318
-  ]
- ],
- "slam": [
-  [
-   "100-CC0-SFX_0/slam_01.ogg",
-   0.47,
-   2686
-  ],
-  [
-   "100-CC0-SFX_0/slam_02.ogg",
-   0.51,
-   2063
-  ],
-  [
-   "100-CC0-SFX_0/slam_03.ogg",
-   0.51,
-   1529
-  ],
-  [
-   "100-CC0-SFX_0/slam_04.ogg",
-   0.3,
-   2424
-  ],
-  [
-   "100-CC0-SFX_0/slam_05.ogg",
-   0.33,
-   3433
-  ],
-  [
-   "100-CC0-SFX_0/slam_06.ogg",
-   0.45,
-   3146
-  ],
-  [
-   "100-CC0-SFX_0/slam_07.ogg",
-   0.51,
-   3346
-  ]
- ],
- "hit": [
-  [
-   "100-CC0-SFX_0/hit_01.ogg",
-   0.26,
-   4064
-  ],
-  [
-   "100-CC0-SFX_0/hit_02.ogg",
-   0.26,
-   3643
-  ],
-  [
-   "100-CC0-SFX_0/hit_03.ogg",
-   0.33,
-   1411
-  ],
-  [
-   "100-CC0-SFX_0/hit_04.ogg",
-   0.37,
-   1544
-  ]
- ],
- "ding": [
-  [
-   "kenney_interfaceSounds/Audio/confirmation_001.ogg",
-   0.29,
-   800
-  ],
-  [
-   "kenney_interfaceSounds/Audio/confirmation_002.ogg",
-   0.54,
-   2970
-  ],
-  [
-   "kenney_interfaceSounds/Audio/confirmation_003.ogg",
-   0.32,
-   4673
-  ],
-  [
-   "kenney_interfaceSounds/Audio/confirmation_004.ogg",
-   0.49,
-   1522
-  ],
-  [
-   "100-CC0-SFX_0/bell_01.ogg",
-   1.14,
-   4095
-  ]
- ],
- "error": [
-  [
-   "kenney_interfaceSounds/Audio/error_001.ogg",
-   0.16,
-   3804
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_002.ogg",
-   0.16,
-   4307
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_003.ogg",
-   0.37,
-   2263
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_004.ogg",
-   0.1,
-   2422
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_005.ogg",
-   0.23,
-   1106
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_006.ogg",
-   0.28,
-   1386
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_007.ogg",
-   0.19,
-   2038
-  ],
-  [
-   "kenney_interfaceSounds/Audio/error_008.ogg",
-   0.14,
-   1830
-  ]
- ],
- "glitch": [
-  [
-   "kenney_interfaceSounds/Audio/glitch_001.ogg",
-   0.02,
-   2104
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glitch_002.ogg",
-   0.03,
-   3773
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glitch_003.ogg",
-   0.01,
-   4036
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glitch_004.ogg",
-   0.02,
-   4005
-  ]
- ],
- "gong": [
-  [
-   "100-CC0-SFX_0/gong_01.ogg",
-   1.32,
-   1872
-  ],
-  [
-   "100-CC0-SFX_0/gong_02.ogg",
-   0.88,
-   1000
-  ]
- ],
- "paper": [
-  [
-   "100-CC0-SFX_0/paper_01.ogg",
-   0.42,
-   4319
-  ],
-  [
-   "100-CC0-SFX_0/paper_02.ogg",
-   0.55,
-   3436
-  ],
-  [
-   "100-CC0-SFX_0/paper_03.ogg",
-   0.55,
-   5457
-  ],
-  [
-   "100-CC0-SFX_0/paper_04.ogg",
-   0.61,
-   5275
-  ]
- ],
- "wood": [
-  [
-   "100-CC0-SFX_0/wooden_01.ogg",
-   0.35,
-   1211
-  ],
-  [
-   "100-CC0-SFX_0/wooden_02.ogg",
-   0.37,
-   2016
-  ],
-  [
-   "100-CC0-SFX_0/wooden_03.ogg",
-   0.37,
-   1694
-  ]
- ],
- "glass": [
-  [
-   "kenney_interfaceSounds/Audio/glass_001.ogg",
-   0.28,
-   1887
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glass_002.ogg",
-   0.13,
-   1719
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glass_003.ogg",
-   0.12,
-   1778
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glass_004.ogg",
-   0.58,
-   7138
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glass_005.ogg",
-   0.11,
-   2591
-  ],
-  [
-   "kenney_interfaceSounds/Audio/glass_006.ogg",
-   0.11,
-   1835
-  ]
- ],
- "scratch": [
-  [
-   "kenney_interfaceSounds/Audio/scratch_001.ogg",
-   0.14,
-   4407
-  ],
-  [
-   "kenney_interfaceSounds/Audio/scratch_002.ogg",
-   0.14,
-   5115
-  ],
-  [
-   "kenney_interfaceSounds/Audio/scratch_003.ogg",
-   0.12,
-   4923
-  ],
-  [
-   "kenney_interfaceSounds/Audio/scratch_004.ogg",
-   0.33,
-   4490
-  ],
-  [
-   "kenney_interfaceSounds/Audio/scratch_005.ogg",
-   0.33,
-   4599
-  ]
- ],
- "door": [
-  [
-   "100-CC0-SFX_0/door_close_01.ogg",
-   0.49,
-   3284
-  ],
-  [
-   "100-CC0-SFX_0/door_close_02.ogg",
-   0.74,
-   3903
-  ],
-  [
-   "100-CC0-SFX_0/door_close_03.ogg",
-   0.42,
-   1327
-  ],
-  [
-   "100-CC0-SFX_0/door_close_04.ogg",
-   0.37,
-   1603
-  ]
- ],
- "coin": [
-  [
-   "sfx_100_v2/sfx100v2_items_01.ogg",
-   0.44,
-   7048
-  ],
-  [
-   "sfx_100_v2/sfx100v2_items_02.ogg",
-   0.46,
-   6582
-  ],
-  [
-   "sfx_100_v2/sfx100v2_metal_01.ogg",
-   0.51,
-   5750
-  ],
-  [
-   "sfx_100_v2/sfx100v2_metal_02.ogg",
-   0.3,
-   3532
-  ],
-  [
-   "sfx_100_v2/sfx100v2_metal_03.ogg",
-   0.28,
-   5728
-  ]
- ]
+"whoosh": [
+[
+"mixkit/1492.ogg",
+1.33,
+1492
+],
+[
+"mixkit/1490.ogg",
+1.76,
+1490
+],
+[
+"mixkit/1489.ogg",
+2.32,
+1489
+],
+[
+"mixkit/3115.ogg",
+0.57,
+3115
+],
+[
+"mixkit/1464.ogg",
+1.1,
+1464
+],
+[
+"mixkit/166.ogg",
+0.78,
+166
+],
+[
+"mixkit/174.ogg",
+1.0,
+174
+],
+[
+"mixkit/168.ogg",
+0.86,
+168
+],
+[
+"mixkit/175.ogg",
+0.61,
+175
+],
+[
+"mixkit/1461.ogg",
+1.39,
+1461
+],
+[
+"mixkit/3161.ogg",
+2.75,
+3161
+],
+[
+"mixkit/2637.ogg",
+0.95,
+2637
+]
+],
+"riser": [
+[
+"mixkit/790.ogg",
+2.57,
+790
+],
+[
+"mixkit/645.ogg",
+6.0,
+645
+],
+[
+"mixkit/632.ogg",
+6.0,
+632
+],
+[
+"mixkit/786.ogg",
+6.0,
+786
+],
+[
+"mixkit/678.ogg",
+6.0,
+678
+],
+[
+"mixkit/2283.ogg",
+6.0,
+2283
+]
+],
+"slam": [
+[
+"mixkit/772.ogg",
+1.22,
+772
+],
+[
+"mixkit/2902.ogg",
+5.99,
+2902
+],
+[
+"mixkit/2180.ogg",
+2.0,
+2180
+],
+[
+"mixkit/2655.ogg",
+1.33,
+2655
+],
+[
+"mixkit/2909.ogg",
+6.0,
+2909
+],
+[
+"mixkit/2919.ogg",
+4.53,
+2919
+],
+[
+"mixkit/2903.ogg",
+3.53,
+2903
+],
+[
+"mixkit/2150.ogg",
+0.59,
+2150
+]
+],
+"hit": [
+[
+"mixkit/2299.ogg",
+1.1,
+2299
+],
+[
+"mixkit/2151.ogg",
+0.48,
+2151
+],
+[
+"mixkit/2167.ogg",
+3.1,
+2167
+],
+[
+"mixkit/2161.ogg",
+1.28,
+2161
+],
+[
+"mixkit/2149.ogg",
+0.37,
+2149
+],
+[
+"mixkit/2072.ogg",
+1.11,
+2072
+]
+],
+"boom": [
+[
+"mixkit/2901.ogg",
+5.14,
+2901
+],
+[
+"mixkit/563.ogg",
+5.5,
+563
+],
+[
+"mixkit/553.ogg",
+6.0,
+553
+],
+[
+"mixkit/2294.ogg",
+1.53,
+2294
+],
+[
+"mixkit/2303.ogg",
+2.75,
+2303
+],
+[
+"mixkit/1286.ogg",
+5.21,
+1286
+],
+[
+"mixkit/2916.ogg",
+6.0,
+2916
+],
+[
+"mixkit/549.ogg",
+4.5,
+549
+]
+],
+"gong": [
+[
+"mixkit/2918.ogg",
+6.0,
+2918
+],
+[
+"mixkit/2900.ogg",
+6.0,
+2900
+],
+[
+"mixkit/2907.ogg",
+4.75,
+2907
+],
+[
+"mixkit/2908.ogg",
+4.87,
+2908
+]
+],
+"pop": [
+[
+"mixkit/2358.ogg",
+0.48,
+2358
+],
+[
+"mixkit/2364.ogg",
+1.17,
+2364
+],
+[
+"mixkit/2357.ogg",
+0.38,
+2357
+],
+[
+"mixkit/2356.ogg",
+0.3,
+2356
+],
+[
+"mixkit/2359.ogg",
+1.47,
+2359
+],
+[
+"mixkit/3005.ogg",
+0.18,
+3005
+],
+[
+"mixkit/2887.ogg",
+1.38,
+2887
+],
+[
+"mixkit/3069.ogg",
+1.18,
+3069
+]
+],
+"click": [
+[
+"mixkit/1109.ogg",
+1.1,
+1109
+],
+[
+"mixkit/2568.ogg",
+0.2,
+2568
+],
+[
+"mixkit/1117.ogg",
+0.29,
+1117
+],
+[
+"mixkit/1120.ogg",
+0.24,
+1120
+],
+[
+"mixkit/2577.ogg",
+1.05,
+2577
+],
+[
+"mixkit/2997.ogg",
+1.05,
+2997
+]
+],
+"tick": [
+[
+"mixkit/1061.ogg",
+0.85,
+1061
+],
+[
+"mixkit/1053.ogg",
+6.0,
+1053
+],
+[
+"mixkit/1054.ogg",
+6.0,
+1054
+],
+[
+"mixkit/1063.ogg",
+2.48,
+1063
+]
+],
+"typing": [
+[
+"mixkit/1397.ogg",
+2.13,
+1397
+],
+[
+"mixkit/1396.ogg",
+6.0,
+1396
+],
+[
+"mixkit/1386.ogg",
+6.0,
+1386
+]
+],
+"camera": [
+[
+"mixkit/1430.ogg",
+0.63,
+1430
+],
+[
+"mixkit/1432.ogg",
+1.51,
+1432
+],
+[
+"mixkit/1440.ogg",
+1.01,
+1440
+],
+[
+"mixkit/1438.ogg",
+1.16,
+1438
+]
+],
+"glitch": [
+[
+"mixkit/2950.ogg",
+4.59,
+2950
+],
+[
+"mixkit/2951.ogg",
+1.07,
+2951
+],
+[
+"mixkit/2946.ogg",
+2.04,
+2946
+],
+[
+"mixkit/1031.ogg",
+0.83,
+1031
+],
+[
+"mixkit/1457.ogg",
+1.4,
+1457
+],
+[
+"mixkit/2595.ogg",
+1.02,
+2595
+],
+[
+"mixkit/1021.ogg",
+0.56,
+1021
+]
+],
+"ding": [
+[
+"mixkit/2870.ogg",
+1.96,
+2870
+],
+[
+"mixkit/952.ogg",
+2.46,
+952
+],
+[
+"mixkit/933.ogg",
+3.36,
+933
+],
+[
+"mixkit/937.ogg",
+3.02,
+937
+],
+[
+"mixkit/600.ogg",
+2.4,
+600
+],
+[
+"mixkit/601.ogg",
+2.0,
+601
+],
+[
+"mixkit/586.ogg",
+1.52,
+586
+],
+[
+"mixkit/2867.ogg",
+1.3,
+2867
+]
+],
+"reveal": [
+[
+"mixkit/961.ogg",
+2.46,
+961
+],
+[
+"mixkit/235.ogg",
+2.27,
+235
+],
+[
+"mixkit/960.ogg",
+2.17,
+960
+]
+],
+"fanfare": [
+[
+"mixkit/2068.ogg",
+3.6,
+2068
+],
+[
+"mixkit/2059.ogg",
+3.54,
+2059
+],
+[
+"mixkit/555.ogg",
+5.28,
+555
+],
+[
+"mixkit/2067.ogg",
+4.0,
+2067
+]
+],
+"error": [
+[
+"mixkit/950.ogg",
+1.74,
+950
+],
+[
+"mixkit/954.ogg",
+1.22,
+954
+],
+[
+"mixkit/3219.ogg",
+4.0,
+3219
+],
+[
+"mixkit/946.ogg",
+1.95,
+946
+],
+[
+"mixkit/2876.ogg",
+1.52,
+2876
+],
+[
+"mixkit/2964.ogg",
+1.23,
+2964
+]
+],
+"fail": [
+[
+"mixkit/472.ogg",
+6.0,
+472
+],
+[
+"mixkit/744.ogg",
+2.65,
+744
+],
+[
+"mixkit/471.ogg",
+5.61,
+471
+]
+],
+"scratch": [
+[
+"mixkit/702.ogg",
+1.11,
+702
+],
+[
+"mixkit/704.ogg",
+3.73,
+704
+],
+[
+"mixkit/703.ogg",
+1.26,
+703
+],
+[
+"mixkit/708.ogg",
+1.21,
+708
+],
+[
+"mixkit/710.ogg",
+1.2,
+710
+],
+[
+"mixkit/707.ogg",
+1.2,
+707
+]
+],
+"boing": [
+[
+"mixkit/2894.ogg",
+1.24,
+2894
+],
+[
+"mixkit/2895.ogg",
+1.21,
+2895
+]
+],
+"drumroll": [
+[
+"mixkit/566.ogg",
+5.94,
+566
+],
+[
+"mixkit/577.ogg",
+6.0,
+577
+]
+],
+"badum": [
+[
+"mixkit/579.ogg",
+2.48,
+579
+],
+[
+"mixkit/578.ogg",
+2.04,
+578
+]
+],
+"heartbeat": [
+[
+"mixkit/498.ogg",
+3.47,
+498
+],
+[
+"mixkit/490.ogg",
+1.1,
+490
+]
+],
+"laugh": [
+[
+"mixkit/424.ogg",
+4.12,
+424
+],
+[
+"mixkit/422.ogg",
+5.76,
+422
+]
+],
+"coin": [
+[
+"mixkit/1993.ogg",
+1.02,
+1993
+],
+[
+"mixkit/1999.ogg",
+1.96,
+1999
+],
+[
+"mixkit/1939.ogg",
+1.14,
+1939
+],
+[
+"mixkit/2003.ogg",
+1.1,
+2003
+],
+[
+"mixkit/1936.ogg",
+2.61,
+1936
+],
+[
+"mixkit/1992.ogg",
+2.5,
+1992
+],
+[
+"mixkit/2069.ogg",
+1.03,
+2069
+],
+[
+"mixkit/3187.ogg",
+1.62,
+3187
+]
+],
+"cash": [
+[
+"mixkit/1989.ogg",
+1.22,
+1989
+],
+[
+"mixkit/2067.ogg",
+4.0,
+2067
+],
+[
+"mixkit/2841.ogg",
+1.03,
+2841
+]
+],
+"paper": [
+[
+"mixkit/1530.ogg",
+1.09,
+1530
+],
+[
+"mixkit/2380.ogg",
+0.9,
+2380
+],
+[
+"mixkit/1104.ogg",
+0.45,
+1104
+],
+[
+"mixkit/2384.ogg",
+0.35,
+2384
+]
+],
+"wood": [
+[
+"mixkit/2182.ogg",
+0.42,
+2182
+],
+[
+"mixkit/3141.ogg",
+1.72,
+3141
+],
+[
+"mixkit/562.ogg",
+1.12,
+562
+]
+],
+"glass": [
+[
+"mixkit/2936.ogg",
+1.2,
+2936
+],
+[
+"mixkit/2836.ogg",
+1.2,
+2836
+],
+[
+"mixkit/3083.ogg",
+2.33,
+3083
+],
+[
+"mixkit/3062.ogg",
+2.5,
+3062
+],
+[
+"mixkit/871.ogg",
+1.3,
+871
+]
+],
+"sparkle": [
+[
+"mixkit/3083.ogg",
+2.33,
+3083
+],
+[
+"mixkit/3062.ogg",
+2.5,
+3062
+],
+[
+"mixkit/871.ogg",
+1.3,
+871
+],
+[
+"mixkit/3060.ogg",
+1.25,
+3060
+]
+],
+"door": [
+[
+"100-CC0-SFX_0/door_close_01.ogg",
+0.49,
+3284
+],
+[
+"100-CC0-SFX_0/door_close_02.ogg",
+0.74,
+3903
+],
+[
+"100-CC0-SFX_0/door_close_03.ogg",
+0.42,
+1327
+],
+[
+"100-CC0-SFX_0/door_close_04.ogg",
+0.37,
+1603
+]
+]
 }

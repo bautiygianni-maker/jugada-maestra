@@ -1,6 +1,6 @@
 """Arma efectos y música a partir de cues.json (exportado por la animación).
 Salida: sfx.wav (efectos) y musica.wav (música recortada con fundidos), 44,1 kHz estéreo.
-Efectos: biblioteca CC0 de OpenGameArt en assets/sfx + golpes y whooshes sintéticos.
+Efectos: biblioteca de Mixkit (setup/bajar_sfx_mixkit.py) con respaldo CC0 de OpenGameArt y sintéticos.
 Música: Kevin MacLeod (incompetech.com), CC BY 4.0 -> requiere crédito en la descripción."""
 import sys as _s, os as _o
 _s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
@@ -60,7 +60,9 @@ def riser(length=1.2):
 SINTETICOS = {"boom": boom, "whoosh": whoosh, "riser": riser}
 GANANCIA = {"boom": 0.9, "whoosh": 0.7, "riser": 0.5, "pop": 0.6, "click": 0.5, "tick": 0.45,
             "slam": 0.8, "hit": 0.7, "ding": 0.55, "error": 0.6, "glitch": 0.5, "gong": 0.6,
-            "paper": 0.6, "wood": 0.8, "glass": 0.5, "scratch": 0.5, "door": 0.6, "coin": 0.5}
+            "paper": 0.6, "wood": 0.8, "glass": 0.5, "scratch": 0.5, "door": 0.6, "coin": 0.5,
+            "reveal": 0.55, "fanfare": 0.55, "fail": 0.6, "boing": 0.6, "drumroll": 0.5, "badum": 0.6,
+            "heartbeat": 0.7, "laugh": 0.5, "cash": 0.6, "sparkle": 0.45, "typing": 0.45, "camera": 0.6}
 
 
 def add(sig, t, g):
@@ -71,10 +73,35 @@ def add(sig, t, g):
     out[a:b] += sig[a - i:b - i] * g
 
 
+def pico(y):
+    """posición (en muestras) del pico de energía: ahí tiene que caer el corte o el golpe"""
+    env = np.convolve(np.abs(y), np.ones(1024) / 1024, mode="same")
+    return int(np.argmax(env))
+
+
+LARGO_MAX = {"riser": 2.2, "whoosh": 1.2, "drumroll": 2.5}  # segundos antes del pico / largo total
+
+
 for c in cues:
     tipo, t, g = c["sfx"], c["t"], c.get("gain", 1.0)
     for tp in tipo.split("+"):  # permite capas: "slam+boom"
-        if tp in SINTETICOS:
+        if tp in cat:  # biblioteca (Mixkit primero; ver setup/bajar_sfx_mixkit.py)
+            y = cargar(next(rot[tp]))
+            if tp in ("whoosh", "riser"):
+                # el pico del whoosh/riser cae justo en el corte o en el golpe
+                k = pico(y)
+                ini = max(0, k - int(LARGO_MAX[tp] * SR))
+                y = y[ini:k + int(0.25 * SR)].copy()
+                n = min(len(y), int(0.15 * SR))
+                y[:n] *= np.linspace(0, 1, n)
+                add(y, t - (k - ini) / SR, GANANCIA.get(tp, 0.6) * g)
+            else:
+                lim = int(LARGO_MAX.get(tp, 2.5) * SR)
+                if len(y) > lim:
+                    y = y[:lim].copy()
+                    y[-int(0.3 * SR):] *= np.linspace(1, 0, int(0.3 * SR))
+                add(y, t, GANANCIA.get(tp, 0.6) * g)
+        elif tp in SINTETICOS:
             sig = SINTETICOS[tp]()
             # el whoosh tiene que terminar en el corte, no empezar
             if tp == "whoosh":
@@ -85,7 +112,7 @@ for c in cues:
                 t2 = t
             add(sig, t2, GANANCIA[tp] * g)
         else:
-            add(cargar(next(rot[tp])), t, GANANCIA.get(tp, 0.6) * g)
+            print(f"aviso: no hay efectos de tipo «{tp}»")
 
 out = np.tanh(out * 1.0) * 0.9
 sf.write("sfx.wav", np.stack([out, out], 1), SR)

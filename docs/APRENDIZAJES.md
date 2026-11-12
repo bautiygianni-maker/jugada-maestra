@@ -21,7 +21,9 @@ Formato: regla concreta · por qué · origen.
 ## Sincronización y sonido (desde el Short #2)
 - Cada elemento animado declara su efecto con `data-sfx` (y `data-at` si lo dibuja el código); `render.py` exporta `cues.json` y `sonido.py` arma `sfx.wav`. Así "si algo se mueve, suena" se cumple solo. · Short #2
 - Los golpes visuales se anclan a la palabra exacta con `sincronizar.py` + `claves.json` (0,1 s antes de la palabra). Sin anclas, el escalado proporcional dejaba golpes hasta 1,4 s antes. · Short #2
-- Efectos: biblioteca CC0 de OpenGameArt (377 sonidos, `sfx_lib`, catálogo por tipo). Golpes graves, whoosh y riser, sintéticos. · Short #2
+- ~~Efectos: biblioteca CC0 de OpenGameArt y golpes sintéticos.~~ El usuario dijo que "son muy malos" (Short #3). Desde ahora: **biblioteca curada de Mixkit** (`setup/bajar_sfx_mixkit.py`, ~150 efectos, estilo de edición actual: impactos de tráiler, whooshes rápidos, risers, scratch, ding de acierto, buzzer, monedas, boing). OpenGameArt queda solo de respaldo. · Short #3
+- Tipos nuevos para `data-sfx`: `reveal`, `fanfare`, `fail` (trombón triste), `scratch` (vinilo), `boing`, `drumroll`, `badum`, `heartbeat`, `laugh`, `cash`, `sparkle`, `typing`, `camera`. Whoosh y riser se alinean por su pico al corte/golpe. · Short #3
+- Nada de sonidos "meme" con dueño (vine boom de la app, audios de TikTok, canciones de moda): los temas virales se agregan desde la app de YouTube al subir. · Short #3
 - Música: Kevin MacLeod (incompetech.com, CC BY 4.0), volumen 0,10 con sidechain suave. **Crédito obligatorio en la descripción.** Temas "virales" de Shorts solo se pueden agregar desde la app de YouTube al subir. · Short #2
 - Nombres de marca: Whisper puede oír "el mes" por "Hermès". Si una toma falla solo en la marca, generar 2 semillas más (`voz_lineas.py 2,7 11,23`) antes de aceptarla. · Short #2
 
