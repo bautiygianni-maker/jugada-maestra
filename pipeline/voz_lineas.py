@@ -1,5 +1,6 @@
-"""Genera las líneas del guion (guion.json, clave "es") con la voz de Tano (Chatterbox Multilingual).
-Se corre dentro de la carpeta del Short. Escribe linea{N}_s{SEMILLA}.wav.
+"""Genera las líneas del guion con la voz de Tano. Se corre dentro de la carpeta del Short.
+Español (JM_IDIOMA=es): Chatterbox Multilingual -> linea{N}_s{SEMILLA}.wav
+Inglés (JM_IDIOMA=en): Kokoro am_michael -> en_linea{N}_s0.wav (Kokoro es determinista: una toma por línea)
 
 Uso:
   python voz_lineas.py                 # todas las líneas, semillas 42 y 7
@@ -8,13 +9,26 @@ Uso:
 import json, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import config
-import torch, torchaudio
-from chatterbox.mtl_tts import ChatterboxMultilingualTTS
-
-LINEAS = json.load(open("guion.json", encoding="utf-8"))["es"]
+LINEAS = json.load(open("guion.json", encoding="utf-8"))[config.IDIOMA]
 SOLO = [int(x) for x in sys.argv[1].split(",")] if len(sys.argv) > 1 else None
 SEMILLAS = [int(x) for x in sys.argv[2].split(",")] if len(sys.argv) > 2 else [42, 7]
 EXAGERACION, CFG = 0.7, 0.4  # valores aprobados para Tano (ver docs/APRENDIZAJES.md)
+
+if config.IDIOMA == "en":
+    import soundfile as sf
+    from kokoro_onnx import Kokoro
+    k = Kokoro(str(config.KOKORO_DIR / "onnx" / "model.onnx"), str(config.KOKORO_DIR / "voices.npz"))
+    for i, txt in enumerate(LINEAS, 1):
+        if SOLO and i not in SOLO:
+            continue
+        t0 = time.time()
+        y, sr = k.create(txt, voice=config.KOKORO_VOZ, speed=1.0, lang="en-us")
+        sf.write(config.arch(f"linea{i}_s0.wav"), y, sr)
+        print(f"en linea {i}: {len(y)/sr:.2f}s ({time.time()-t0:.0f}s)", flush=True)
+    sys.exit(0)
+
+import torch, torchaudio
+from chatterbox.mtl_tts import ChatterboxMultilingualTTS
 
 dev = config.dispositivo()
 if dev == "cpu":

@@ -38,3 +38,27 @@ def lanzar_chrome(playwright):
     if CHROME:
         args["executable_path"] = CHROME
     return playwright.chromium.launch(**args)
+
+
+# ---------- idioma ----------
+# producir.py pone JM_IDIOMA=es o en para cada versión. Los archivos intermedios en inglés llevan prefijo "en_"
+# (en_linea1_s0.wav, en_timeline.json, en_claves.json...); los del español quedan con el nombre de siempre.
+IDIOMA = os.environ.get("JM_IDIOMA", "es")
+IDIOMAS = ("es", "en")
+
+
+def arch(nombre):
+    return nombre if IDIOMA == "es" else f"{IDIOMA}_{nombre}"
+
+
+VOZ_PISTA = f"voz_{IDIOMA}.wav"
+
+
+def numeros(G):
+    """mapa cifra -> palabras del guion para el idioma actual (clave "numeros" o "numeros_en")"""
+    return G.get("numeros" if IDIOMA == "es" else f"numeros_{IDIOMA}", {})
+
+
+# Voz en inglés: Kokoro v1.0 (ONNX, Apache 2.0), voz am_michael (aprobada en el Short #1). La baja setup/instalar.py.
+KOKORO_DIR = Path(os.environ.get("JM_KOKORO", RAIZ / "modelos" / "kokoro"))
+KOKORO_VOZ = os.environ.get("JM_KOKORO_VOZ", "am_michael")

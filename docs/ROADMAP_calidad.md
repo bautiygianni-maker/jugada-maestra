@@ -34,6 +34,7 @@ El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una an
 | R2 | **Pregunta abierta temprana** ("y lo más raro viene al final") que se cierra en el clímax | pendiente |
 | R3 | **Interrupción de patrón** cada 3–5 s: cambio de fondo, zoom brusco, scratch, freeze-frame | pendiente |
 | R4 | Miniatura y primer cuadro iguales (la imagen del hook es la portada) | pendiente |
+| R5 | **Logo real de la marca** en el hook o en "me infiltré en…" (reconocimiento instantáneo) | desde #4 |
 
 ## Mejoras, en orden sugerido
 | # | Mejora | Esfuerzo | Estado |
@@ -47,4 +48,4 @@ El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una an
 | 7 | **Biblioteca de escenarios** vectoriales reutilizables (tienda, oficina, tribunal, fábrica, calle) | Alto, incremental | pendiente |
 | 8 | **Migrar a Remotion** (React): springs con física, motion blur, mejor composición. Evaluar cuando 1–6 estén hechas | Alto | evaluar |
 | 9 | **Subtítulos palabra por palabra** con resaltado (marcas de Whisper) | Medio | pendiente |
-| 10 | Versión en inglés automática desde el mismo `video.html` (textos en `guion.json`) | Medio | pendiente |
+| 10 | Versión en inglés automática desde el mismo `video.html` (textos en `data-en`, voz Kokoro) | Medio | **hecho · Short #3** |

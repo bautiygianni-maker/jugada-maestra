@@ -11,7 +11,8 @@ with sync_playwright() as p:
     b=config.lanzar_chrome(p)
     pg=b.new_page(viewport={"width":1080,"height":1920})
     errs=[]; pg.on("pageerror",lambda e:errs.append(str(e)))
-    pg.goto(Path(os.getcwd(), sys.argv[1]).as_uri()); pg.wait_for_timeout(400)
+    lang=sys.argv[4] if len(sys.argv)>4 else "es"
+    pg.goto(Path(os.getcwd(), sys.argv[1]).as_uri()+f"?lang={lang}"); pg.wait_for_timeout(400)
     ims=[]
     for t in ts:
         pg.evaluate(f"setTime({t})"); pg.screenshot(path="_preview.png")

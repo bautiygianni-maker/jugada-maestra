@@ -14,8 +14,8 @@ LIB = str(config.SFX_LIB)
 MUSICA = sys.argv[1] if len(sys.argv) > 1 else str(config.MUSICA_DEFECTO)
 MUSICA_DESDE = float(sys.argv[2]) if len(sys.argv) > 2 else 0.0
 
-cues = json.load(open("cues.json"))
-TOTAL = json.load(open("timeline.json"))["total"]
+cues = json.load(open(config.arch("cues.json")))
+TOTAL = json.load(open(config.arch("timeline.json")))["total"]
 N = int(TOTAL * SR)
 out = np.zeros(N)
 rng = np.random.default_rng(3)
@@ -115,7 +115,7 @@ for c in cues:
             print(f"aviso: no hay efectos de tipo «{tp}»")
 
 out = np.tanh(out * 1.0) * 0.9
-sf.write("sfx.wav", np.stack([out, out], 1), SR)
+sf.write(config.arch("sfx.wav"), np.stack([out, out], 1), SR)
 
 # Música: tramo desde MUSICA_DESDE, del largo del video, con fundidos
 m, _ = librosa.load(MUSICA, sr=SR, mono=False, offset=MUSICA_DESDE, duration=TOTAL + 0.5)
@@ -127,5 +127,5 @@ if m.shape[1] < N:
 fi, fo = int(0.3 * SR), int(1.5 * SR)
 m[:, :fi] *= np.linspace(0, 1, fi)
 m[:, -fo:] *= np.linspace(1, 0, fo)
-sf.write("musica.wav", m.T, SR)
-print(f"sfx.wav ({len(cues)} efectos) y musica.wav listos, {TOTAL}s")
+sf.write(config.arch("musica.wav"), m.T, SR)
+print(f"{config.arch('sfx.wav')} ({len(cues)} efectos) y {config.arch('musica.wav')} listos, {TOTAL}s")

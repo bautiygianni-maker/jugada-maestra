@@ -3,7 +3,10 @@ Se corre dentro de la carpeta del Short.  Uso: python qc.py VIDEO.mp4
 Revisa: duración, volumen, pausas de la voz, transcripción contra el guion y arma una hoja de fotogramas.
 Sale con código 1 si algo no pasa."""
 import json, re, subprocess, sys, unicodedata
-import numpy as np
+import numpy as np, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import config
+L = config.IDIOMA
 
 VIDEO = sys.argv[1]
 G = json.load(open("guion.json", encoding="utf-8"))
@@ -30,7 +33,7 @@ if abs(lufs + 14) > 1:
 
 # 3. pausas de la voz (la del final puede ser más larga)
 sil = re.findall(r"silence_start: ([\d.]+).*?silence_duration: ([\d.]+)",
-                 ff(["-i", "voz_es.wav", "-af", "silencedetect=n=-40dB:d=0.6", "-f", "null", "-"]), re.S)
+                 ff(["-i", config.VOZ_PISTA, "-af", "silencedetect=n=-40dB:d=0.6", "-f", "null", "-"]), re.S)
 for ini, d in sil:
     ini, d = float(ini), float(d)
     final = ini + d >= dur - 0.2
@@ -43,8 +46,8 @@ from faster_whisper import WhisperModel
 import soundfile as sf
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", VIDEO, "-ac", "1", "-ar", "16000", "_qc16k.wav"], check=True)
 y, _ = sf.read("_qc16k.wav", dtype="float32")
-txt = " ".join(s.text for s in WhisperModel("small", device="cpu", compute_type="int8").transcribe(y, language="es")[0])
-num = G.get("numeros", {})
+txt = " ".join(s.text for s in WhisperModel("small", device="cpu", compute_type="int8").transcribe(y, language=L)[0])
+num = config.numeros(G)
 
 
 def norm(t, invertir=False):
@@ -58,7 +61,7 @@ def norm(t, invertir=False):
 
 # grafías de Whisper para marcas (ej. "Cosco" por "Costco"); solo si las líneas sueltas ya transcriben bien la marca
 alias = G.get("alias_asr", {})
-ref, hyp = norm(" ".join(G["es"]), True), [alias.get(w, w) for w in norm(txt)]
+ref, hyp = norm(" ".join(G[L]), True), [alias.get(w, w) for w in norm(txt)]
 d = np.arange(len(hyp) + 1)
 for i, r in enumerate(ref, 1):
     p, d[0] = d.copy(), i
@@ -69,10 +72,11 @@ print(f"error de palabras: {wer:.3f}\ntranscripción: {txt.strip()}")
 if wer > 0.05:
     fallas.append(f"error de palabras {wer:.1%} (máx 5%)")
 
+A_QC = config.arch("qc_fotogramas.jpg")
 # 5. hoja de 16 fotogramas para revisión visual
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", VIDEO, "-vf",
-                f"fps=16/{dur:.2f},scale=240:-1,tile=8x2", "-frames:v", "1", "qc_fotogramas.jpg"], check=True)
-print("hoja de fotogramas: qc_fotogramas.jpg (revisarla a ojo)")
+                f"fps=16/{dur:.2f},scale=240:-1,tile=8x2", "-frames:v", "1", A_QC], check=True)
+print(f"hoja de fotogramas: {A_QC} (revisarla a ojo)")
 
 print("\nRESULTADO:", "OK" if not fallas else "FALLA")
 for f in fallas:

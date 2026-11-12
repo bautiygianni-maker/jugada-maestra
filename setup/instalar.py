@@ -40,6 +40,14 @@ for f in ARCHIVOS:
     print(f"   bajando {f} ...")
     hf_hub_download("ResembleAI/chatterbox", f, local_dir=str(destino))
 
+print("   voz en inglés: Kokoro v1.0 (ONNX) + voz am_michael")
+import numpy as np
+kdir = RAIZ / "modelos" / "kokoro"
+pip("kokoro-onnx==0.6.1")
+hf_hub_download("onnx-community/Kokoro-82M-v1.0-ONNX", "onnx/model.onnx", local_dir=str(kdir))
+vb = hf_hub_download("onnx-community/Kokoro-82M-v1.0-ONNX", "voices/am_michael.bin", local_dir=str(kdir))
+np.savez(kdir / "voices.npz", am_michael=np.fromfile(vb, dtype=np.float32).reshape(-1, 1, 256))
+
 print("5/5 ffmpeg")
 if shutil.which("ffmpeg") and shutil.which("ffprobe"):
     print("   ffmpeg OK")

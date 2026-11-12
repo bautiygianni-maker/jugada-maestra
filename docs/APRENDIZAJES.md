@@ -30,12 +30,23 @@ Formato: regla concreta · por qué · origen.
 - Whisper escribe "Cosco" por "Costco" en el video mezclado aunque las líneas sueltas digan "Costco". Si la marca se transcribe bien en las líneas sueltas, se agrega el alias en `guion.json` (`"alias_asr": {"cosco": "costco"}`) para que `qc.py` no lo cuente como error. Nunca subir el umbral del 5 %. · Short #3
 - `numeros` en `guion.json` cubre también las partes sueltas que Whisper escribe en cifras ("un dólar con 50", "5 mil"). · Short #3
 
+## Versiones ES + EN (obligatorio desde el Short #3)
+- **Cada Short sale en español y en inglés.** `producir.py` hace las dos por defecto. · Pedido del usuario. · Short #3
+- Voz en inglés: Kokoro v1.0 `am_michael` (la aprobada en el Ferrari EN). Mismo guion, misma animación: los textos de pantalla van en `data-en`, los ancla en `en_claves.json`. · Short #3
+- Los textos en inglés suelen ser más largos: mirar las capturas con `preview.py ... en` y achicar solo en inglés con `html[lang=en] .clase{...}`. En el Short #3 se cortaban "TODAY: OVER $4", "RAISE IT?" y "TO COME BACK.". · Short #3
+- En inglés los miles van con coma ($5,320); en español, como hasta ahora. · Short #3
+
+## Logos (desde el Short #4)
+- **Se pueden usar logos reales para identificar a la marca** (uso editorial). Tal cual: sin deformarlos, recolorearlos ni animar sus partes; nunca protagonistas de la miniatura; nada que sugiera patrocinio. Productos y diseños protegidos se siguen dibujando genéricos. · Pedido del usuario. · Short #3
+- Se bajan con `setup/bajar_logo.py` (Wikimedia Commons) y quedan en `assets/marcas/` con su fuente en `marcas.json`. La API de Commons suele dar 429 desde la nube: el script baja el archivo directo y hay que revisar la licencia en la página. · Short #3
+
 ## Animación (errores técnicos)
 - Una animación de salida (`hide`) debe usar `forwards`, nunca `both`: con `both` el elemento queda visible antes de su entrada. · Encontrado en el Short #2 (también afectaba la plantilla de Ferrari). · Short #2
 - Revisar siempre capturas de prueba (`preview.py`) antes del render completo. · Short #2
 
 ## Guion e idioma
 - Español neutro: nada de voseo ni argentinismos ("tú pides", "dinero", "me infiltré", "te la entregan"). · El público es toda LATAM. · Short #1
+- Aunque el guion llegue aprobado con una palabra regional ("plata" en el hook del #3), se cambia por la neutra ("dinero") y se avisa. · Short #3
 - **Vocabulario neutro, nunca regional:** "perro caliente" (no pancho/jocho/completo), "refresco" (no gaseosa/soda), "autos", "dinero". Ante la duda, la palabra que se entiende en toda Latinoamérica. · Pedido del usuario. · Short #3
 - Números de la voz escritos en letras ("dos mil veinticinco"). · Chatterbox los lee mejor. · Short #1
 - No inventar frases de personas reales; las "reglas" atribuidas deben estar documentadas. · Política de YouTube y credibilidad. · Short #1

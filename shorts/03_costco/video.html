@@ -25,6 +25,10 @@ body{font-family:'Inter Display','Inter',sans-serif;}
 #vig{position:absolute;inset:0;z-index:40;pointer-events:none;background:radial-gradient(ellipse 75% 62% at 50% 46%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
 #grain{position:absolute;inset:-64px;z-index:41;pointer-events:none;opacity:.075;mix-blend-mode:overlay;background-size:256px 256px}
 .cue{display:none}
+html[lang=en] .km{font-size:104px !important;white-space:nowrap}
+html[lang=en] .en86{font-size:86px !important}
+html[lang=en] .en120{font-size:118px !important}
+.nw{white-space:nowrap}
 
 @keyframes popIn{0%{transform:scale(0)}65%{transform:scale(1.14)}100%{transform:scale(1)}}
 @keyframes slam{0%{transform:scale(2.8);opacity:0}55%{transform:scale(.9);opacity:1}100%{transform:scale(1);opacity:1}}
@@ -62,7 +66,7 @@ body{font-family:'Inter Display','Inter',sans-serif;}
 <section class="scene" id="s1" data-start="0" data-end="5" style="background:radial-gradient(circle at 50% 50%,#4a1d14 0%,#1B1311 70%)">
  <div class="cam a" style="animation:cam 5s linear both">
   <!-- se ve desde el primer cuadro -->
-  <div class="abs center cap" style="top:190px;font-size:118px">COSTCO<br><span class="r">PIERDE DINERO</span></div>
+  <div class="abs center cap" style="top:190px;font-size:118px" data-en="COSTCO<br><span class='r'>LOSES MONEY</span>">COSTCO<br><span class="r">PIERDE DINERO</span></div>
   <div class="abs a soft" style="top:640px;left:150px;width:780px;animation:shake .4s .05s both" data-sfx="hit">
     <div class="a" style="animation:bob 1.6s ease-in-out .5s infinite both"><div class="hotdog"></div></div>
   </div>
@@ -73,11 +77,11 @@ body{font-family:'Inter Display','Inter',sans-serif;}
     <div class="abs a coinO" style="--dx:-300px;--dy:330px;--rot:-20deg;animation:coinOut .55s 1.20s both" data-sfx="coin"></div>
     <div class="abs a coinO" style="--dx:330px;--dy:300px;--rot:30deg;animation:coinOut .55s 1.45s both" data-sfx="coin"></div>
   </div>
-  <div class="abs center a" style="top:1180px;animation:popIn .3s 1.9s both,hide .2s 3.2s forwards" data-sfx="error"><span class="chip" style="background:#E23B2E;color:#fff;font-size:52px">CADA VEZ QUE LO VENDE</span></div>
+  <div class="abs center a" style="top:1180px;animation:popIn .3s 1.9s both,hide .2s 3.2s forwards" data-sfx="error"><span class="chip" style="background:#E23B2E;color:#fff;font-size:52px" data-en="EVERY TIME IT SELLS ONE">CADA VEZ QUE LO VENDE</span></div>
   <!-- giro: su mejor estrategia -->
   <div class="abs center a" style="top:1150px;animation:shake .4s 3.35s both">
     <div class="a glowV" style="display:inline-block;animation:stamp .4s 3.3s both" data-sfx="slam+boom">
-      <div style="border:16px solid #3DDC84;color:#3DDC84;font-weight:900;font-size:104px;line-height:1;padding:22px 40px;border-radius:26px;background:rgba(27,19,17,.88)">…Y ES SU MEJOR<br>ESTRATEGIA</div>
+      <div style="border:16px solid #3DDC84;color:#3DDC84;font-weight:900;font-size:104px;line-height:1;padding:22px 40px;border-radius:26px;background:rgba(27,19,17,.88)" data-en="…AND IT’S THEIR<br>BEST MOVE">…Y ES SU MEJOR<br>ESTRATEGIA</div>
     </div>
   </div>
   <div class="abs a" style="top:520px;left:430px;width:220px;animation:popIn .35s 4.1s both" data-sfx="ding"><div class="ico glow" data-i="crown"></div></div>
@@ -88,17 +92,17 @@ body{font-family:'Inter Display','Inter',sans-serif;}
 <section class="scene" id="s2" data-start="5" data-end="8.5" style="background:#F5B82E">
  <div class="cam a" style="animation:cam 3.5s linear both">
   <div class="abs a" style="inset:-400px;animation:rays 3.5s linear both;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,.16) 0 10deg,transparent 10deg 20deg)"></div>
-  <div class="abs center a" style="top:150px;animation:slam .4s .1s both" data-sfx="slam"><span class="chip">MISIÓN #003 · COSTCO</span></div>
+  <div class="abs center a" style="top:150px;animation:slam .4s .1s both" data-sfx="slam"><span class="chip" data-en="MISSION #003 · COSTCO">MISIÓN #003 · COSTCO</span></div>
   <div class="abs a" style="top:300px;left:160px;width:760px;height:836px;animation:zoomIn 3.5s linear both">
     <div class="a" style="width:100%;height:100%;animation:popIn .5s .05s both" data-sfx="pop">
       <div class="a" style="width:100%;height:100%;animation:bob 1.4s ease-in-out .6s infinite both"><div class="tano soft" style="width:100%;height:100%"></div></div>
     </div>
   </div>
-  <div class="abs center cap a" style="top:1220px;animation:fadeUp .35s .7s both" data-sfx="click">Me infiltré en <span class="r">Costco</span></div>
-  <div class="abs center cap a" style="top:1350px;animation:fadeUp .35s 1.7s both" data-sfx="click">para entender</div>
+  <div class="abs center cap a" style="top:1220px;animation:fadeUp .35s .7s both" data-sfx="click" data-en="I snuck into <span class='r'>Costco</span>">Me infiltré en <span class="r">Costco</span></div>
+  <div class="abs center cap a" style="top:1350px;animation:fadeUp .35s 1.7s both" data-sfx="click" data-en="to find out">para entender</div>
   <div class="abs center a" style="top:1480px">
-    <span class="cap a" style="display:inline-block;font-size:150px;color:#fff;animation:popIn .3s 2.3s both" data-sfx="pop">¿</span>
-    <span class="cap a" style="display:inline-block;font-size:150px;animation:popIn .3s 2.5s both" data-sfx="pop">por qué</span>
+    <span class="cap a" style="display:inline-block;font-size:150px;color:#fff;animation:popIn .3s 2.3s both" data-sfx="pop" data-en="">¿</span>
+    <span class="cap a" style="display:inline-block;font-size:150px;animation:popIn .3s 2.5s both" data-sfx="pop" data-en="why">por qué</span>
     <span class="cap a" style="display:inline-block;font-size:150px;animation:popIn .3s 2.7s both" data-sfx="pop">?</span>
   </div>
  </div>
@@ -107,7 +111,7 @@ body{font-family:'Inter Display','Inter',sans-serif;}
 <!-- 3 · PERO: $1.50 desde 1984; con inflación, más de $4 -->
 <section class="scene" id="s3" data-start="8.5" data-end="17" style="background:#FFF4E2">
  <div class="cam a" style="animation:cam 8.5s linear both">
-  <div class="abs center a" style="top:120px;animation:slam .4s .02s both" data-sfx="slam"><div class="cap" style="font-size:190px"><span class="r">PERO</span></div></div>
+  <div class="abs center a" style="top:120px;animation:slam .4s .02s both" data-sfx="slam"><div class="cap" style="font-size:190px" data-en="<span class='r'>BUT</span>"><span class="r">PERO</span></div></div>
   <!-- parte 1: precio y año -->
   <div class="abs a" style="inset:0;animation:hide .2s 4.4s forwards">
     <div class="abs a soft" style="top:360px;left:120px;width:560px;animation:popIn .4s .5s both" data-sfx="pop"><div class="hotdog"></div></div>
@@ -115,7 +119,7 @@ body{font-family:'Inter Display','Inter',sans-serif;}
     <div class="abs center a" style="top:760px;animation:slam .4s .9s both" data-sfx="slam+coin">
       <div class="big glow" style="display:inline-block;font-size:300px;color:#F5B82E;-webkit-text-stroke:12px #000;paint-order:stroke fill;line-height:1">$1.50</div>
     </div>
-    <div class="abs center a" style="top:1130px;animation:fadeUp .3s 2.2s both" data-sfx="click"><span class="chip" style="font-size:60px">DESDE</span></div>
+    <div class="abs center a" style="top:1130px;animation:fadeUp .3s 2.2s both" data-sfx="click"><span class="chip" style="font-size:60px" data-en="SINCE">DESDE</span></div>
     <div class="abs center a" style="top:1250px;animation:stamp .45s 2.6s both" data-sfx="wood+boom">
       <div style="display:inline-block;background:#fff;border:12px solid #14161A;border-radius:28px;overflow:hidden;box-shadow:0 18px 0 #14161A">
         <div style="background:#E23B2E;height:70px;border-bottom:10px solid #14161A"></div>
@@ -124,7 +128,7 @@ body{font-family:'Inter Display','Inter',sans-serif;}
     </div>
   </div>
   <!-- parte 2: inflación -->
-  <div class="abs center cap a" style="top:350px;font-size:88px;animation:fadeUp .3s 4.5s both" data-sfx="whoosh">Con la <span class="r">inflación</span>…</div>
+  <div class="abs center cap a" style="top:350px;font-size:88px;animation:fadeUp .3s 4.5s both" data-sfx="whoosh" data-en="With <span class='r'>inflation</span>…">Con la <span class="r">inflación</span>…</div>
   <div class="abs a" style="top:500px;left:90px;width:900px;height:560px;animation:show .2s 4.6s both">
     <svg viewBox="0 0 900 560" width="900" height="560">
       <path d="M40 520 L860 520 M40 520 L40 30" stroke="#14161A" stroke-width="10" stroke-linecap="round" fill="none"/>
@@ -137,22 +141,22 @@ body{font-family:'Inter Display','Inter',sans-serif;}
   </div>
   <div class="abs center a" style="top:1380px;animation:shake .4s 6.55s both">
     <div class="a" style="display:inline-block;animation:slam .4s 6.5s both" data-sfx="slam+boom">
-      <div class="cap" style="font-size:100px">HOY: <span class="r">MÁS DE $4</span></div>
+      <div class="cap en86" style="font-size:100px" data-en="TODAY: <span class='r'>OVER $4</span>">HOY: <span class="r">MÁS DE $4</span></div>
     </div>
   </div>
-  <div class="abs center a" style="top:1620px;animation:popIn .35s 7.3s both" data-sfx="ding"><span class="chip" style="background:#3DDC84;color:#14161A;font-size:50px">COSTCO SIGUE COBRANDO $1.50</span></div>
+  <div class="abs center a" style="top:1620px;animation:popIn .35s 7.3s both" data-sfx="ding"><span class="chip" style="background:#3DDC84;color:#14161A;font-size:50px" data-en="COSTCO STILL CHARGES $1.50">COSTCO SIGUE COBRANDO $1.50</span></div>
  </div>
 </section>
 
 <!-- 4 · POR ESO: 2013, el jefe quiere subirlo; el fundador: "te mato. Arréglalo." -->
 <section class="scene" id="s4" data-start="17" data-end="25.5" style="background:#1C2430">
  <div class="cam a" style="animation:cam 8.5s linear both">
-  <div class="abs center a" style="top:110px;animation:slam .35s .02s both" data-sfx="slam"><div class="cap" style="font-size:150px"><span class="g">POR ESO</span></div></div>
+  <div class="abs center a" style="top:110px;animation:slam .35s .02s both" data-sfx="slam"><div class="cap" style="font-size:150px" data-en="<span class='g'>SO</span>"><span class="g">POR ESO</span></div></div>
   <div class="abs center a" style="top:300px;animation:popIn .3s .9s both" data-sfx="pop"><span class="chip" style="background:#F5B82E;color:#14161A;font-size:60px">2013</span></div>
   <!-- el jefe -->
   <div class="abs a" style="top:440px;left:40px;width:420px;height:620px;animation:fromLeft .45s 2.0s both" data-sfx="whoosh">
     <div class="ico soft" data-i="boss"></div>
-    <div class="abs center" style="top:630px"><span class="chip" style="font-size:40px">EL JEFE</span></div>
+    <div class="abs center" style="top:630px"><span class="chip" style="font-size:40px" data-en="THE BOSS">EL JEFE</span></div>
   </div>
   <!-- precio con flecha -->
   <div class="abs a" style="top:520px;left:420px;width:240px;animation:popIn .3s 2.8s both,hide .2s 6.2s forwards" data-sfx="pop">
@@ -160,39 +164,39 @@ body{font-family:'Inter Display','Inter',sans-serif;}
     <div class="a" style="margin:16px auto 0;width:90px;height:220px;transform-origin:50% 100%;animation:arrowUp .45s 3.2s both" data-sfx="riser">
       <svg viewBox="0 0 90 220" width="90" height="220"><path d="M45 210 L45 50" stroke="#E23B2E" stroke-width="30" stroke-linecap="round"/><path d="M8 70 L45 10 L82 70 Z" fill="#E23B2E" stroke="#000" stroke-width="6" stroke-linejoin="round"/></svg>
     </div>
-    <div class="abs center cap a" style="top:-120px;font-size:64px;animation:fadeUp .3s 3.3s both" data-sfx="click">¿SUBIRLO?</div>
+    <div class="abs center cap a nw" style="top:-100px;left:-100px;right:-100px;font-size:64px;animation:fadeUp .3s 3.3s both" data-sfx="click" data-en="RAISE IT?">¿SUBIRLO?</div>
   </div>
   <!-- el fundador -->
   <div class="abs a" style="top:440px;left:620px;width:420px;height:620px;animation:fromRight .45s 4.2s both" data-sfx="whoosh">
     <div class="ico soft" data-i="founder"></div>
-    <div class="abs center" style="top:630px"><span class="chip" style="font-size:40px">EL FUNDADOR</span></div>
+    <div class="abs center" style="top:630px"><span class="chip" style="font-size:40px" data-en="THE FOUNDER">EL FUNDADOR</span></div>
   </div>
   <div class="abs a" style="top:1210px;left:90px;width:900px;animation:popIn .35s 4.9s both" data-sfx="pop">
-    <div style="position:relative;background:#fff;border:10px solid #000;border-radius:44px;padding:34px 30px;text-align:center;font-weight:900;font-size:78px;color:#14161A;line-height:1.1">«Si subes el precio…»
+    <div style="position:relative;background:#fff;border:10px solid #000;border-radius:44px;padding:34px 30px;text-align:center;font-weight:900;font-size:78px;color:#14161A;line-height:1.1"><span data-en="“If you raise the price…”">«Si subes el precio…»</span>
       <div style="position:absolute;top:-58px;right:200px;width:0;height:0;border-left:40px solid transparent;border-right:40px solid transparent;border-bottom:58px solid #000"></div>
     </div>
   </div>
   <div class="abs center a" style="top:1430px;animation:shake .45s 6.25s both">
     <div class="a glowR" style="display:inline-block;animation:stamp .4s 6.2s both" data-sfx="slam+boom">
-      <div style="border:18px solid #FF4A3D;color:#FF4A3D;font-weight:900;font-size:150px;line-height:1;padding:18px 50px;border-radius:26px;background:rgba(28,36,48,.92)">«TE MATO.»</div>
+      <div style="border:18px solid #FF4A3D;color:#FF4A3D;font-weight:900;font-size:150px;line-height:1;padding:18px 50px;border-radius:26px;background:rgba(28,36,48,.92)" class="km" data-en="“I’LL KILL YOU.”">«TE MATO.»</div>
     </div>
   </div>
-  <div class="abs center a" style="top:1690px;animation:slam .35s 6.9s both" data-sfx="slam"><span class="chip" style="background:#3DDC84;color:#14161A;font-size:70px;padding:18px 44px">«ARRÉGLALO.»</span></div>
-  <div class="abs center a" style="top:1835px;color:#9AA0A8;font-weight:700;font-size:34px;animation:fadeUp .3s 7.4s both" data-sfx="click">Lo contó el propio jefe en una entrevista (2018)</div>
+  <div class="abs center a" style="top:1690px;animation:slam .35s 6.9s both" data-sfx="slam"><span class="chip" style="background:#3DDC84;color:#14161A;font-size:70px;padding:18px 44px" data-en="“FIGURE IT OUT.”">«ARRÉGLALO.»</span></div>
+  <div class="abs center a" style="top:1835px;color:#9AA0A8;font-weight:700;font-size:34px;animation:fadeUp .3s 7.4s both" data-sfx="click" data-en="As told by the boss himself in a 2018 interview">Lo contó el propio jefe en una entrevista (2018)</div>
  </div>
 </section>
 
 <!-- 5 · ASÍ QUE: cambian de refresco y fabrican sus salchichas -->
 <section class="scene" id="s5" data-start="25.5" data-end="31.5" style="background:#2a1d12">
  <div class="cam a" style="animation:cam 6s linear both">
-  <div class="abs center a" style="top:120px;animation:slam .35s .02s both" data-sfx="slam"><div class="cap" style="font-size:160px"><span class="o">ASÍ QUE</span></div></div>
+  <div class="abs center a" style="top:120px;animation:slam .35s .02s both" data-sfx="slam"><div class="cap" style="font-size:160px" data-en="<span class='o'>SO</span>"><span class="o">ASÍ QUE</span></div></div>
   <div class="abs a" style="inset:0;animation:hide .2s 2.8s forwards">
     <div class="abs a" style="top:420px;left:340px;width:400px;animation:popIn .35s .5s both" data-sfx="pop">
       <div class="a" style="animation:exitL .4s 1.1s both" data-sfx="whoosh"><div class="ico soft" data-i="cupRed"></div></div>
     </div>
     <div class="abs a" style="top:420px;left:340px;width:400px;animation:fromRight .4s 1.15s both" data-sfx="pop"><div class="ico soft" data-i="cupBlue"></div></div>
-    <div class="abs center cap a" style="top:960px;font-size:96px;animation:fadeUp .3s 1.2s both">otro <span class="g">refresco</span></div>
-    <div class="abs center a" style="top:1180px;animation:popIn .35s 1.8s both" data-sfx="coin+ding"><span class="chip glowV" style="background:#3DDC84;color:#14161A;font-size:66px">PARA AHORRAR</span></div>
+    <div class="abs center cap a" style="top:960px;font-size:96px;animation:fadeUp .3s 1.2s both" data-en="a different <span class='g'>soda</span>">otro <span class="g">refresco</span></div>
+    <div class="abs center a" style="top:1180px;animation:popIn .35s 1.8s both" data-sfx="coin+ding"><span class="chip glowV" style="background:#3DDC84;color:#14161A;font-size:66px" data-en="TO SAVE MONEY">PARA AHORRAR</span></div>
   </div>
   <!-- fábrica propia -->
   <div class="abs a" style="top:360px;left:140px;width:800px;animation:fromTop .45s 2.9s both" data-sfx="whoosh+wood"><div class="ico soft" data-i="factory"></div></div>
@@ -202,31 +206,31 @@ body{font-family:'Inter Display','Inter',sans-serif;}
     <div class="abs a" style="top:12px;left:330px;width:240px;animation:popIn .3s 3.9s both" data-sfx="pop"><div class="ico" data-i="sausage"></div></div>
     <div class="abs a" style="top:12px;left:620px;width:240px;animation:popIn .3s 4.2s both" data-sfx="pop"><div class="ico" data-i="sausage"></div></div>
   </div>
-  <div class="abs center cap a" style="top:1200px;font-size:100px;animation:slam .4s 4.6s both" data-sfx="slam">sus <span class="r">propias</span><br>salchichas</div>
-  <div class="abs center a" style="top:1500px;animation:stamp .4s 5.1s both" data-sfx="error"><span style="display:inline-block;border:12px solid #F5B82E;color:#F5B82E;font-weight:900;font-size:76px;padding:10px 34px;border-radius:20px;background:#2a1d12">HECHAS EN CASA</span></div>
+  <div class="abs center cap a" style="top:1200px;font-size:100px;animation:slam .4s 4.6s both" data-sfx="slam" data-en="their <span class='r'>own</span><br>hot dogs">sus <span class="r">propias</span><br>salchichas</div>
+  <div class="abs center a" style="top:1500px;animation:stamp .4s 5.1s both" data-sfx="error"><span style="display:inline-block;border:12px solid #F5B82E;color:#F5B82E;font-weight:900;font-size:76px;padding:10px 34px;border-radius:20px;background:#2a1d12" data-en="MADE IN-HOUSE">HECHAS EN CASA</span></div>
  </div>
 </section>
 
 <!-- 6 · PORQUE: el negocio son las membresías -->
 <section class="scene" id="s6" data-start="31.5" data-end="40.5" style="background:#0E0F12">
  <div class="cam a" style="animation:cam 9s linear both">
-  <div class="abs center a" style="top:300px;animation:slam .35s .02s both,hide .2s 1.2s forwards" data-sfx="slam"><div class="cap" style="font-size:130px">¿TANTO<br><span class="g">ESFUERZO?</span></div></div>
-  <div class="abs center a" style="top:120px;animation:slam .35s 1.25s both" data-sfx="slam"><div class="cap" style="font-size:150px"><span class="g">PORQUE</span></div></div>
-  <div class="abs center cap a" style="top:330px;font-size:84px;animation:fadeUp .3s 1.8s both,hide .2s 3.6s forwards" data-sfx="click">el negocio <span class="r">no es</span>…</div>
+  <div class="abs center a" style="top:300px;animation:slam .35s .02s both,hide .2s 1.2s forwards" data-sfx="slam"><div class="cap" style="font-size:130px" data-en="ALL THAT<br><span class='g'>EFFORT?</span>">¿TANTO<br><span class="g">ESFUERZO?</span></div></div>
+  <div class="abs center a" style="top:120px;animation:slam .35s 1.25s both" data-sfx="slam"><div class="cap" style="font-size:150px" data-en="<span class='g'>BECAUSE</span>"><span class="g">PORQUE</span></div></div>
+  <div class="abs center cap a" style="top:330px;font-size:84px;animation:fadeUp .3s 1.8s both,hide .2s 3.6s forwards" data-sfx="click" data-en="the business <span class='r'>isn’t</span>…">el negocio <span class="r">no es</span>…</div>
   <div class="abs a" style="top:520px;left:190px;width:700px;animation:popIn .35s 2.4s both,hide .2s 3.6s forwards" data-sfx="pop">
     <div class="hotdog soft"></div>
     <div class="abs a" style="inset:-30px 40px;animation:stamp .3s 2.9s both" data-sfx="error"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none"><path d="M10 10 L90 90 M90 10 L10 90" stroke="#FF4A3D" stroke-width="9" stroke-linecap="round"/></svg></div>
   </div>
   <!-- membresías -->
-  <div class="abs center a" style="top:330px;animation:popIn .3s 3.8s both" data-sfx="pop"><span class="chip" style="background:#F5B82E;color:#14161A;font-size:56px">AÑO FISCAL 2025</span></div>
+  <div class="abs center a" style="top:330px;animation:popIn .3s 3.8s both" data-sfx="pop"><span class="chip" style="background:#F5B82E;color:#14161A;font-size:56px" data-en="FISCAL YEAR 2025">AÑO FISCAL 2025</span></div>
   <div class="abs a glow" style="top:470px;left:150px;width:780px;animation:show .01s 4.4s both,cardFlip .6s 4.4s both" data-sfx="whoosh+glass"><div class="ico" data-i="card"></div></div>
   <div class="abs center a" style="top:1000px;animation:popIn .3s 5.2s both" data-sfx="coin">
     <div id="money" class="big glowV" style="font-size:230px;color:#3DDC84;-webkit-text-stroke:10px #000;paint-order:stroke fill;line-height:1">$0</div>
-    <div class="cap" style="font-size:80px">MILLONES</div>
+    <div class="cap" style="font-size:80px" data-en="MILLION">MILLONES</div>
   </div>
   <div class="abs center a" style="top:1420px;animation:shake .45s 7.65s both">
     <div class="a" style="display:inline-block;animation:stamp .4s 7.6s both" data-sfx="slam+boom">
-      <div style="border:16px solid #F5B82E;color:#F5B82E;font-weight:900;font-size:92px;line-height:1.05;padding:20px 40px;border-radius:26px;background:rgba(14,15,18,.9)">SOLO EN<br>MEMBRESÍAS</div>
+      <div style="border:16px solid #F5B82E;color:#F5B82E;font-weight:900;font-size:92px;line-height:1.05;padding:20px 40px;border-radius:26px;background:rgba(14,15,18,.9)" data-en="JUST FROM<br>MEMBERSHIPS">SOLO EN<br>MEMBRESÍAS</div>
     </div>
   </div>
  </div>
@@ -237,34 +241,38 @@ body{font-family:'Inter Display','Inter',sans-serif;}
  <div class="cam a" style="animation:cam 8s linear both">
   <div id="rain" class="abs a" style="inset:0;animation:hide .2s 3.9s forwards"></div>
   <div class="abs a" style="inset:0;animation:hide .2s 3.9s forwards">
-    <div class="abs center a" style="top:120px;animation:slam .35s .02s both" data-sfx="slam"><div class="cap" style="font-size:150px"><span class="g">POR ESO</span></div></div>
+    <div class="abs center a" style="top:120px;animation:slam .35s .02s both" data-sfx="slam"><div class="cap" style="font-size:150px" data-en="<span class='g'>THAT’S WHY</span>"><span class="g">POR ESO</span></div></div>
     <div class="abs center a" style="top:520px;animation:popIn .35s .9s both" data-sfx="pop">
       <div id="combos" class="big glow" style="font-size:380px;color:#F5B82E;-webkit-text-stroke:12px #000;paint-order:stroke fill;line-height:1">0</div>
-      <div class="cap" style="font-size:110px">MILLONES</div>
+      <div class="cap" style="font-size:110px" data-en="MILLION">MILLONES</div>
     </div>
-    <div class="abs center a" style="top:1130px;animation:popIn .35s 2.9s both" data-sfx="click"><span class="chip" style="font-size:64px">DE COMBOS AL AÑO</span></div>
+    <div class="abs center a" style="top:1130px;animation:popIn .35s 2.9s both" data-sfx="click"><span class="chip" style="font-size:64px" data-en="COMBOS A YEAR">DE COMBOS AL AÑO</span></div>
   </div>
   <!-- no vende perros calientes -->
-  <div class="abs center cap a" style="top:300px;font-size:96px;animation:fadeUp .3s 4.0s both,hide .2s 5.6s forwards" data-sfx="click">Costco no vende<br>perros calientes.</div>
+  <div class="abs center cap a" style="top:300px;font-size:96px;animation:fadeUp .3s 4.0s both,hide .2s 5.6s forwards" data-sfx="click" data-en="Costco doesn’t sell<br>hot dogs.">Costco no vende<br>perros calientes.</div>
   <div class="abs a" style="top:640px;left:220px;width:640px;animation:popIn .35s 4.3s both,hide .2s 5.6s forwards" data-sfx="pop"><div class="hotdog soft"></div></div>
   <div class="abs a" style="top:820px;left:160px;height:40px;background:#FF4A3D;border:6px solid #000;transform:rotate(-12deg);animation:show .01s 5.1s both,strike .25s 5.1s both,hide .2s 5.6s forwards" data-sfx="scratch"></div>
   <!-- la razón para volver -->
   <div class="abs a" style="top:0;left:240px;width:600px;height:1500px;transform-origin:50% 0;clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);background:linear-gradient(rgba(255,233,168,.55),rgba(255,233,168,.05));animation:spot .45s 5.7s both" data-sfx="whoosh"></div>
-  <div class="abs center cap a" style="top:200px;font-size:110px;animation:fadeUp .3s 5.75s both">Vende la razón</div>
-  <div class="abs center a" style="top:360px;animation:slam .45s 6.4s both" data-sfx="slam+gong"><div class="cap glow" style="font-size:150px"><span class="g">PARA<br>VOLVER.</span></div></div>
+  <div class="abs center cap a" style="top:200px;font-size:110px;animation:fadeUp .3s 5.75s both" data-en="It sells a reason">Vende la razón</div>
+  <div class="abs center a" style="top:360px;animation:slam .45s 6.4s both" data-sfx="slam+gong"><div class="cap glow en120" style="font-size:150px" data-en="<span class='g'>TO COME<br>BACK.</span>"><span class="g">PARA<br>VOLVER.</span></div></div>
   <div class="abs" style="top:760px;left:300px;width:480px;height:528px">
     <div class="a" style="width:100%;height:100%;animation:popIn .4s 5.9s both" data-sfx="pop">
       <div class="a" style="width:100%;height:100%;animation:bob 1.4s ease-in-out infinite both"><div class="tano soft" style="width:100%;height:100%"></div></div>
     </div>
   </div>
   <div class="abs center a" style="top:1400px;animation:popIn .35s 7.0s both" data-sfx="ding">
-    <div style="display:inline-block;background:#fff;color:#14161A;font-weight:900;font-size:68px;line-height:1.1;padding:22px 44px;border-radius:28px;border:8px solid #000">¿Tú volverías por<br>un perro caliente?</div>
+    <div style="display:inline-block;background:#fff;color:#14161A;font-weight:900;font-size:68px;line-height:1.1;padding:22px 44px;border-radius:28px;border:8px solid #000" data-en="Would you go back<br>for a hot dog?">¿Tú volverías por<br>un perro caliente?</div>
   </div>
  </div>
 </section>
 
 <script src="../../assets/tano.js"></script>
 <script>
+// ---------- idioma: ?lang=en cambia cada texto por su data-en ----------
+const LANG = new URLSearchParams(location.search).get('lang') || 'es';
+document.documentElement.lang = LANG;
+if (LANG !== 'es') document.querySelectorAll(`[data-${LANG}]`).forEach(e => { e.innerHTML = e.getAttribute(`data-${LANG}`); });
 // ---------- dibujos (genéricos: sin logos ni diseños de Costco) ----------
 const HOTDOG = `<svg viewBox="0 0 780 360" width="100%" style="display:block;overflow:visible" aria-hidden="true">
 <ellipse cx="390" cy="345" rx="330" ry="14" fill="rgba(0,0,0,.35)"/>
@@ -284,7 +292,7 @@ const ICO = {
  founder:`<svg viewBox="0 0 420 620" width="100%" height="100%"><circle cx="210" cy="130" r="95" fill="#E9C9A8" stroke="#14161A" stroke-width="10"/><path d="M118 120 Q120 60 150 50 M302 120 Q300 60 270 50" stroke="#D9D9D9" stroke-width="22" fill="none" stroke-linecap="round"/><rect x="155" y="118" width="48" height="34" rx="10" fill="none" stroke="#14161A" stroke-width="7"/><rect x="217" y="118" width="48" height="34" rx="10" fill="none" stroke="#14161A" stroke-width="7"/><path d="M203 132 L217 132" stroke="#14161A" stroke-width="6"/><path d="M150 100 L200 110 M270 100 L220 110" stroke="#14161A" stroke-width="10" stroke-linecap="round"/><path d="M180 192 L240 192" stroke="#14161A" stroke-width="8" stroke-linecap="round"/><path d="M40 620 Q40 260 210 250 Q380 260 380 620 Z" fill="#6B4A2A" stroke="#14161A" stroke-width="10"/><path d="M170 255 L210 320 L250 255 Z" fill="#F4F1EA" stroke="#14161A" stroke-width="6"/><path d="M300 400 L360 320" stroke="#14161A" stroke-width="44" stroke-linecap="round"/><path d="M300 400 L360 320" stroke="#6B4A2A" stroke-width="30" stroke-linecap="round"/><path d="M364 314 L372 270" stroke="#14161A" stroke-width="20" stroke-linecap="round"/><path d="M364 314 L372 270" stroke="#E9C9A8" stroke-width="9" stroke-linecap="round"/></svg>`,
  factory:`<svg viewBox="0 0 800 560" width="100%"><rect x="560" y="40" width="80" height="260" fill="#9AA0A8" stroke="#14161A" stroke-width="10"/><path d="M40 540 L40 260 L220 160 L220 260 L400 160 L400 260 L580 160 L580 260 L760 260 L760 540 Z" fill="#C9CDD2" stroke="#14161A" stroke-width="10" stroke-linejoin="round"/><rect x="100" y="360" width="120" height="100" rx="10" fill="#F5B82E" stroke="#14161A" stroke-width="8"/><rect x="290" y="360" width="120" height="100" rx="10" fill="#F5B82E" stroke="#14161A" stroke-width="8"/><rect x="480" y="360" width="120" height="100" rx="10" fill="#F5B82E" stroke="#14161A" stroke-width="8"/><rect x="640" y="380" width="80" height="160" fill="#E23B2E" stroke="#14161A" stroke-width="8"/><circle cx="600" cy="20" r="26" fill="#DDD" opacity=".8"/><circle cx="640" cy="-10" r="34" fill="#DDD" opacity=".6"/></svg>`,
  sausage:`<svg viewBox="0 0 240 80" width="100%"><rect x="8" y="10" width="224" height="60" rx="30" fill="#C0432B" stroke="#14161A" stroke-width="8"/><path d="M40 28 Q60 20 80 28" stroke="#E0705A" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`,
- card:`<svg viewBox="0 0 780 480" width="100%"><rect x="10" y="10" width="760" height="460" rx="40" fill="#F4F1EA" stroke="#14161A" stroke-width="12"/><rect x="10" y="10" width="760" height="130" rx="40" fill="#14161A"/><rect x="10" y="100" width="760" height="40" fill="#14161A"/><text x="60" y="98" font-family="Inter" font-weight="900" font-size="68" fill="#F5B82E" letter-spacing="6">MEMBRESÍA</text><rect x="60" y="190" width="200" height="240" rx="20" fill="#C9CDD2" stroke="#14161A" stroke-width="8"/><circle cx="160" cy="275" r="50" fill="#8E949C"/><path d="M90 420 Q160 330 230 420" fill="#8E949C"/><rect x="300" y="210" width="400" height="34" rx="12" fill="#C9CDD2"/><rect x="300" y="270" width="320" height="34" rx="12" fill="#C9CDD2"/><rect x="300" y="370" width="420" height="60" rx="10" fill="#14161A"/><path d="M320 380 L320 420 M340 380 L340 420 M352 380 L352 420 M375 380 L375 420 M390 380 L390 420 M412 380 L412 420 M430 380 L430 420 M455 380 L455 420 M470 380 L470 420 M492 380 L492 420 M515 380 L515 420 M530 380 L530 420 M552 380 L552 420 M575 380 L575 420 M590 380 L590 420 M612 380 L612 420 M635 380 L635 420 M650 380 L650 420 M672 380 L672 420 M695 380 L695 420" stroke="#F4F1EA" stroke-width="7"/></svg>`
+ card:`<svg viewBox="0 0 780 480" width="100%"><rect x="10" y="10" width="760" height="460" rx="40" fill="#F4F1EA" stroke="#14161A" stroke-width="12"/><rect x="10" y="10" width="760" height="130" rx="40" fill="#14161A"/><rect x="10" y="100" width="760" height="40" fill="#14161A"/><text x="60" y="98" font-family="Inter" font-weight="900" font-size="68" fill="#F5B82E" letter-spacing="6">${LANG==='en'?'MEMBERSHIP':'MEMBRESÍA'}</text><rect x="60" y="190" width="200" height="240" rx="20" fill="#C9CDD2" stroke="#14161A" stroke-width="8"/><circle cx="160" cy="275" r="50" fill="#8E949C"/><path d="M90 420 Q160 330 230 420" fill="#8E949C"/><rect x="300" y="210" width="400" height="34" rx="12" fill="#C9CDD2"/><rect x="300" y="270" width="320" height="34" rx="12" fill="#C9CDD2"/><rect x="300" y="370" width="420" height="60" rx="10" fill="#14161A"/><path d="M320 380 L320 420 M340 380 L340 420 M352 380 L352 420 M375 380 L375 420 M390 380 L390 420 M412 380 L412 420 M430 380 L430 420 M455 380 L455 420 M470 380 L470 420 M492 380 L492 420 M515 380 L515 420 M530 380 L530 420 M552 380 L552 420 M575 380 L575 420 M590 380 L590 420 M612 380 L612 420 M635 380 L635 420 M650 380 L650 420 M672 380 L672 420 M695 380 L695 420" stroke="#F4F1EA" stroke-width="7"/></svg>`
 };
 document.querySelectorAll('.hotdog').forEach(e=>e.innerHTML=HOTDOG);
 document.querySelectorAll('.ico').forEach(e=>e.innerHTML=ICO[e.dataset.i]);
@@ -350,7 +358,7 @@ window.setTime=function(t){
   document.getElementById('infl').textContent='$'+inf.toFixed(2);
   // 6: membresías 0 -> 5320 millones (año fiscal 2025)
   const l6=local(scenes[5],t); const m=Math.round(5320*ease((l6-5.25)/1.5));
-  document.getElementById('money').textContent='$'+m;
+  document.getElementById('money').textContent='$'+(LANG==='en'?m.toLocaleString('en-US'):m);
   // 7: combos 0 -> 245 millones
   const l7=local(scenes[6],t); document.getElementById('combos').textContent=Math.round(245*ease((l7-0.95)/1.6));
 };

@@ -28,4 +28,5 @@ const TANO = `<svg viewBox="0 0 400 440" width="100%" height="100%" aria-hidden=
 <ellipse cx="200" cy="204" rx="14" ry="10" fill="#14161A"/>
 <path d="M180 226 Q200 240 226 222" stroke="#14161A" stroke-width="5" fill="none" stroke-linecap="round"/>
 </svg>`;
-function pintarTano(){document.querySelectorAll('.tano').forEach(e=>e.innerHTML=TANO);}
+// la credencial dice VISITA en español y VISITOR en inglés (según <html lang>, que pone la página con ?lang=)
+function pintarTano(){const svg=document.documentElement.lang==='en'?TANO.replace('>VISITA<','>VISITOR<'):TANO;document.querySelectorAll('.tano').forEach(e=>e.innerHTML=svg);}

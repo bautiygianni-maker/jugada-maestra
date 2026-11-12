@@ -8,4 +8,6 @@
 | `sfx/kenney_interfaceSounds` | Kenney, vía OpenGameArt | CC0 | No |
 | `sfx/swishes`, `sfx/100-CC0-SFX_0`, `sfx/sfx_100_v2`, `sfx/UI_SFX_Set` | OpenGameArt | CC0 | No |
 | Modelo Chatterbox (no está en el repo) | Resemble AI | MIT | No |
+| Voz en inglés: Kokoro v1.0, voz `am_michael` (no está en el repo) | hexgrad / onnx-community | Apache 2.0 | No (el crédito de OpenSLR va solo en la versión en español) |
+| `marcas/*` (logos) | Wikimedia Commons, ver `marcas/marcas.json` | Marcas registradas de sus dueños, uso editorial | No |
 | `tano.js`, dibujos y animaciones | Propios del canal | — | — |

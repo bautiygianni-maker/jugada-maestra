@@ -12,7 +12,7 @@
  "en": [
   "Costco loses money every time it sells this hot dog... and it's their best move.",
   "So I snuck into Costco to find out why.",
-  "But it's cost a dollar fifty since nineteen eighty-four. With inflation, it would be over four dollars today.",
+  "But it's been a dollar fifty since nineteen eighty-four. With inflation, it would be over four dollars today.",
   "So in twenty thirteen, Costco's boss wanted to raise it... and the founder told him: if you raise the price, I'll kill you. Figure it out.",
   "So they switched sodas to save money... and started making their own hot dogs.",
   "All that effort? Because the business isn't the hot dog: in twenty twenty-five, Costco collected over five billion dollars just in memberships.",
@@ -33,5 +33,14 @@
  },
  "alias_asr": {
   "cosco": "costco"
+ },
+ "numeros_en": {
+  "1984": "nineteen eighty-four",
+  "2013": "twenty thirteen",
+  "2025": "twenty twenty-five",
+  "245": "two hundred forty-five",
+  "4": "four",
+  "5": "five",
+  "50": "fifty"
  }
 }

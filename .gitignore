@@ -22,3 +22,14 @@ __pycache__/
 .DS_Store
 Thumbs.db
 .venv/
+
+# Intermedios de la versión en inglés (prefijo en_)
+shorts/*/en_linea*_s*.wav
+shorts/*/en_scene*.mp4
+shorts/*/en_video_mudo.mp4
+shorts/*/voz_en.wav
+shorts/*/en_sfx.wav
+shorts/*/en_musica.wav
+shorts/*/en_cues.json
+shorts/*/en_timeline.json
+shorts/*/en_list.txt
