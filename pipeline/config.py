@@ -38,3 +38,27 @@ def lanzar_chrome(playwright):
     if CHROME:
         args["executable_path"] = CHROME
     return playwright.chromium.launch(**args)
+
+
+# ---------- idioma ----------
+# JM_IDIOMA=es (por defecto) o en. Español usa los nombres de siempre; los demás idiomas,
+# archivos con sufijo (_en) y tomas con prefijo (en_linea1_s0.wav), así las versiones no se pisan.
+IDIOMA = os.environ.get("JM_IDIOMA", "es")
+PRE = "" if IDIOMA == "es" else f"{IDIOMA}_"
+VOZ_ARCH = f"voz_{IDIOMA}.wav"
+
+# Voz en inglés: Kokoro v1.0 (Apache 2.0), voz am_michael aprobada en el Short #1
+KOKORO_DIR = Path(os.environ.get("JM_KOKORO", RAIZ / "modelos" / "kokoro"))
+KOKORO_VOZ, KOKORO_VEL = "am_michael", 1.1
+
+
+def arch(nombre):
+    """timeline.json -> timeline_en.json cuando el idioma no es español."""
+    if IDIOMA == "es":
+        return nombre
+    base, ext = os.path.splitext(nombre)
+    return f"{base}_{IDIOMA}{ext}"
+
+
+def numeros(guion):
+    return guion.get("numeros" if IDIOMA == "es" else f"numeros_{IDIOMA}", {})

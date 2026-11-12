@@ -29,6 +29,13 @@ Formato: regla concreta · por qué · origen.
 - Una animación de salida (`hide`) debe usar `forwards`, nunca `both`: con `both` el elemento queda visible antes de su entrada. · Encontrado en el Short #2 (también afectaba la plantilla de Ferrari). · Short #2
 - Revisar siempre capturas de prueba (`preview.py`) antes del render completo. · Short #2
 
+## Dos idiomas (obligatorio desde el 12/11/2026)
+- **Cada Short sale en español neutro Y en inglés.** Mismo `video.html`, mismo ritmo; cambian voz y textos. · Pedido del usuario. · Short #2
+- Inglés: voz Kokoro `am_michael` a velocidad 1.1 (aprobada en el Short #1). `python pipeline/producir.py shorts/NN --idioma en`. · Short #2
+- Textos de pantalla: diccionario `TR.en` en `video.html` (la clave es el texto en español tal cual). Al renderizar en inglés, `trSinUsar` debe quedar vacío. · Short #2
+- Pronunciación de marcas: el guion se escribe bien ("Hermès") y `guion.json -> pronunciacion_en` le da a la voz la versión fonética ("Air-mez"). Kokoro decía "HERMZ". Probar cada marca nueva antes de producir. · Short #2
+- `guion.json` lleva `numeros_en` y cada Short lleva `claves_en.json` (palabras en inglés para anclar golpes). Si Whisper escribe distinto un nombre ("Birken"), anclar con un fragmento ("Birk"). · Short #2
+
 ## Guion e idioma
 - Español neutro: nada de voseo ni argentinismos ("tú pides", "dinero", "me infiltré", "te la entregan"). · El público es toda LATAM. · Short #1
 - **Vocabulario neutro, nunca regional:** "perro caliente" (no pancho/jocho/completo), "refresco" (no gaseosa/soda), "autos", "dinero". Ante la duda, la palabra que se entiende en toda Latinoamérica. · Pedido del usuario. · Short #3

@@ -2,7 +2,9 @@
 Se corre dentro de la carpeta del Short.  Uso: python qc.py VIDEO.mp4
 Revisa: duración, volumen, pausas de la voz, transcripción contra el guion y arma una hoja de fotogramas.
 Sale con código 1 si algo no pasa."""
-import json, re, subprocess, sys, unicodedata
+import json, os, re, subprocess, sys, unicodedata
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import config
 import numpy as np
 
 VIDEO = sys.argv[1]
@@ -30,7 +32,7 @@ if abs(lufs + 14) > 1:
 
 # 3. pausas de la voz (la del final puede ser más larga)
 sil = re.findall(r"silence_start: ([\d.]+).*?silence_duration: ([\d.]+)",
-                 ff(["-i", "voz_es.wav", "-af", "silencedetect=n=-40dB:d=0.6", "-f", "null", "-"]), re.S)
+                 ff(["-i", config.VOZ_ARCH, "-af", "silencedetect=n=-40dB:d=0.6", "-f", "null", "-"]), re.S)
 for ini, d in sil:
     ini, d = float(ini), float(d)
     final = ini + d >= dur - 0.2
@@ -41,10 +43,10 @@ print(f"pausas de voz > 0,6 s: {[(round(float(a),1), round(float(b),2)) for a, b
 # 4. transcripción del video final contra el guion
 from faster_whisper import WhisperModel
 import soundfile as sf
-subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", VIDEO, "-ac", "1", "-ar", "16000", "_qc16k.wav"], check=True)
-y, _ = sf.read("_qc16k.wav", dtype="float32")
-txt = " ".join(s.text for s in WhisperModel("small", device="cpu", compute_type="int8").transcribe(y, language="es")[0])
-num = G.get("numeros", {})
+subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", VIDEO, "-ac", "1", "-ar", "16000", config.arch("_qc16k.wav")], check=True)
+y, _ = sf.read(config.arch("_qc16k.wav"), dtype="float32")
+txt = " ".join(s.text for s in WhisperModel("small", device="cpu", compute_type="int8").transcribe(y, language=config.IDIOMA)[0])
+num = config.numeros(G)
 
 
 def norm(t, invertir=False):
@@ -53,10 +55,15 @@ def norm(t, invertir=False):
             t = t.replace(v, k)
     t = unicodedata.normalize("NFD", t.lower())
     t = "".join(c for c in t if unicodedata.category(c) != "Mn")
-    return re.sub(r"[^a-z0-9 ]", " ", t.replace(".", "")).split()
+    t = re.sub(r"(?<=\d)[.,](?=\d)", "", t)  # 13.500 / 13,500 -> 13500
+    return re.sub(r"[^a-z0-9 ]", " ", t).split()
 
 
-ref, hyp = norm(" ".join(G["es"]), True), norm(txt)
+if config.IDIOMA == "en":
+    # Whisper escribe "$13,500" y omite "dollars" aunque la voz lo dice
+    txt = re.sub(r"\$(\d[\d,.]*)(?!\s*(?:million|billion|thousand)?\s*dollars)", r"\1 dollars", txt)
+# números en letras -> cifras en los dos lados, así se compara lo dicho y no cómo lo escribe Whisper
+ref, hyp = norm(" ".join(G[config.IDIOMA]), True), norm(txt, True)
 d = np.arange(len(hyp) + 1)
 for i, r in enumerate(ref, 1):
     p, d[0] = d.copy(), i
@@ -69,7 +76,7 @@ if wer > 0.05:
 
 # 5. hoja de 16 fotogramas para revisión visual
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", VIDEO, "-vf",
-                f"fps=16/{dur:.2f},scale=240:-1,tile=8x2", "-frames:v", "1", "qc_fotogramas.jpg"], check=True)
+                f"fps=16/{dur:.2f},scale=240:-1,tile=8x2", "-frames:v", "1", config.arch("qc_fotogramas.jpg")], check=True)
 print("hoja de fotogramas: qc_fotogramas.jpg (revisarla a ojo)")
 
 print("\nRESULTADO:", "OK" if not fallas else "FALLA")

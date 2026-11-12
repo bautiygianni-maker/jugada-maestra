@@ -10,3 +10,4 @@ pillow
 pyarrow
 pandas
 huggingface_hub
+kokoro-onnx==0.6.1

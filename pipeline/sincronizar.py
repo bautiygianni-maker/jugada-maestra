@@ -3,13 +3,17 @@ Lee claves.json: [[escena (1..7), tiempo local nominal, palabra], ...]
 Busca cada palabra con Whisper (marcas por palabra) dentro de su escena y guarda en timeline.json,
 para cada escena, una lista de anclas [tiempo nominal, tiempo real] (locales). La animación
 interpola entre anclas, así cada golpe visual cae ADELANTO segundos antes de su palabra."""
+import sys as _s, os as _o
+_s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
+import config
+
 import json, unicodedata
 import librosa
 from faster_whisper import WhisperModel
 
 ADELANTO = 0.10
-TL = json.load(open("timeline.json"))
-CLAVES = json.load(open("claves.json", encoding="utf-8"))
+TL = json.load(open(config.arch("timeline.json")))
+CLAVES = json.load(open(config.arch("claves.json"), encoding="utf-8"))
 ORIG = TL["orig"]
 
 
@@ -18,9 +22,9 @@ def norm(w):
     return "".join(c for c in w if unicodedata.category(c) != "Mn" and (c.isalnum()))
 
 
-y, _ = librosa.load("voz_es.wav", sr=16000)
+y, _ = librosa.load(config.VOZ_ARCH, sr=16000)
 m = WhisperModel("small", device="cpu", compute_type="int8")
-segs, _ = m.transcribe(y, language="es", word_timestamps=True)
+segs, _ = m.transcribe(y, language=config.IDIOMA, word_timestamps=True)
 words = [(norm(w.word), w.start) for s in segs for w in s.words]
 
 anclas = []
@@ -45,5 +49,5 @@ for i, ((os_, oe), (ns, ne, _)) in enumerate(zip(ORIG, TL["escenas"])):
     anclas.append(pts)
 
 TL["anclas"] = anclas
-json.dump(TL, open("timeline.json", "w"), indent=1)
+json.dump(TL, open(config.arch("timeline.json"), "w"), indent=1)
 print("timeline.json con anclas")

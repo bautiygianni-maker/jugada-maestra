@@ -22,3 +22,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 .venv/
+shorts/*/en_*
+shorts/*/*_en.json
+!shorts/*/claves_en.json
+shorts/*/*_en.wav
+shorts/*/video_mudo_en.mp4
+shorts/*/list_en.txt
+shorts/*/qc_fotogramas*.jpg

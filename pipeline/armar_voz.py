@@ -15,14 +15,14 @@ import re as _re
 ORIG = [(float(a), float(b)) for a, b in _re.findall(r'class="scene"[^>]*data-start="([\d.]+)" data-end="([\d.]+)"', open("video.html", encoding="utf-8").read())]
 assert ORIG, "no encontré escenas en video.html"
 G = json.load(open("guion.json", encoding="utf-8"))
-LINEAS = G["es"]
+LINEAS = G[config.IDIOMA]
 SEMILLAS = [42, 7]
 INICIO = 0.08        # la voz entra 0,08 s después del corte
 COLA = 0.35          # aire después de la frase antes del próximo corte
 COLA_FINAL = 1.2     # deja leer la pregunta final
 PAUSA_MAX = 0.35     # pausas internas más largas se recortan a esto
 MIN_ESCENA = 3.0
-NUM = G.get("numeros", {})
+NUM = config.numeros(G)
 
 
 def norm(t):
@@ -63,11 +63,11 @@ elegidas = []
 for n, linea in enumerate(LINEAS, 1):
     cands = []
     import glob
-    for f in sorted(glob.glob(f"linea{n}_s*.wav")):
+    for f in sorted(glob.glob(f"{config.PRE}linea{n}_s*.wav")):
         sem = int(f.split("_s")[1][:-4])
         y, _ = librosa.load(f, sr=SR)
         y = acortar_pausas(y)
-        segs, _ = asr.transcribe(librosa.resample(y, orig_sr=SR, target_sr=16000), language="es", beam_size=5)
+        segs, _ = asr.transcribe(librosa.resample(y, orig_sr=SR, target_sr=16000), language=config.IDIOMA, beam_size=5)
         txt = " ".join(sg.text for sg in segs).strip()
         err = wer(norm(linea), norm(txt))
         cands.append((err, len(y) / SR, sem, y, txt))
@@ -88,8 +88,8 @@ pista = np.zeros(int((total + 0.5) * SR), dtype=np.float32)
 for (s, e, _), y in zip(timeline, elegidas):
     i = int((s + INICIO) * SR)
     pista[i:i + len(y)] += y
-sf.write("voz_es.wav", pista[: int(total * SR)], SR)
-json.dump({"total": total, "escenas": timeline, "orig": ORIG}, open("timeline.json", "w"), indent=1)
+sf.write(config.VOZ_ARCH, pista[: int(total * SR)], SR)
+json.dump({"total": total, "escenas": timeline, "orig": ORIG}, open(config.arch("timeline.json"), "w"), indent=1)
 for k, (s, e, od) in enumerate(timeline, 1):
     print(f"escena {k}: {s:5.2f}–{e:5.2f}  ({e-s:.2f}s, antes {od:.2f}s)")
 print("total", total)

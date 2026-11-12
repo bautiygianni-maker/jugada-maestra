@@ -1,6 +1,6 @@
 # Jugada Maestra · fábrica de Shorts
 
-Canal de YouTube "Jugada Maestra": Shorts que explican la jugada genial detrás de una marca, narrados por **Tano, el mapache infiltrado**. Dos versiones: español neutro latinoamericano (sin voseo) e inglés. Objetivo: canal rentable con producción automatizada (n8n + agentes) y control humano en 3 puntos.
+Canal de YouTube "Jugada Maestra": Shorts que explican la jugada genial detrás de una marca, narrados por **Tano, el mapache infiltrado**. **Cada Short sale en dos versiones: español neutro latinoamericano (sin voseo ni regionalismos) e inglés.** Objetivo: canal rentable con producción automatizada (n8n + agentes) y control humano en 3 puntos.
 
 ## Antes de cualquier tarea
 1. Leer `docs/APRENDIZAJES.md`: **reglas obligatorias** que salen de correcciones del usuario. Ninguna se puede romper.
@@ -20,7 +20,8 @@ Canal de YouTube "Jugada Maestra": Shorts que explican la jugada genial detrás 
 ## Comandos
 ```
 python setup/instalar.py                                   # una vez por máquina
-python pipeline/producir.py shorts/02_birkin               # Short completo
+python pipeline/producir.py shorts/02_birkin               # Short completo en español
+python pipeline/producir.py shorts/02_birkin --idioma en   # versión en inglés (Kokoro)
 python pipeline/producir.py shorts/02_birkin --desde render
 cd shorts/02_birkin && python ../../pipeline/preview.py video.html 0.5,2,4 prev.jpg   # capturas de prueba
 ```

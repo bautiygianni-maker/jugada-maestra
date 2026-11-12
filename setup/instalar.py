@@ -40,6 +40,14 @@ for f in ARCHIVOS:
     print(f"   bajando {f} ...")
     hf_hub_download("ResembleAI/chatterbox", f, local_dir=str(destino))
 
+print("   modelo Kokoro (voz en inglés)")
+import urllib.request
+kdir = RAIZ / "modelos" / "kokoro"; kdir.mkdir(parents=True, exist_ok=True)
+for f in ["kokoro-v1.0.onnx", "voices-v1.0.bin"]:
+    if not (kdir / f).exists():
+        print(f"   bajando {f} ...")
+        urllib.request.urlretrieve(f"https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{f}", kdir / f)
+
 print("5/5 ffmpeg")
 if shutil.which("ffmpeg") and shutil.which("ffprobe"):
     print("   ffmpeg OK")

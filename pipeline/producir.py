@@ -20,11 +20,15 @@ ap.add_argument("carpeta")
 ap.add_argument("--desde", choices=PASOS)
 ap.add_argument("--solo", choices=PASOS)
 ap.add_argument("--musica", help="ruta a un .mp3 (por defecto, el de config.py)")
-ap.add_argument("--salida", help="nombre del MP4 final (por defecto <carpeta>_ES.mp4)")
+ap.add_argument("--salida", help="nombre del MP4 final (por defecto <carpeta>_ES.mp4 / _EN.mp4)")
+ap.add_argument("--idioma", default="es", choices=["es", "en"], help="es (Chatterbox) o en (Kokoro)")
 a = ap.parse_args()
 
+os.environ["JM_IDIOMA"] = a.idioma
+sys.path.insert(0, str(PIPE))
+import config  # noqa: E402  (lee JM_IDIOMA)
 os.chdir(a.carpeta)
-nombre = a.salida or f"{Path(a.carpeta).name}_ES.mp4"
+nombre = a.salida or f"{Path(a.carpeta).name}_{a.idioma.upper()}.mp4"
 G = json.load(open("guion.json", encoding="utf-8"))
 py = sys.executable
 
@@ -36,7 +40,7 @@ def correr(*args):
 
 def paso(n):
     if n == "voz":
-        faltan = [i for i in range(1, len(G["es"]) + 1) if not glob.glob(f"linea{i}_s*.wav")]
+        faltan = [i for i in range(1, len(G[a.idioma]) + 1) if not glob.glob(f"{config.PRE}linea{i}_s*.wav")]
         if faltan:
             correr(PIPE / "voz_lineas.py", ",".join(map(str, faltan)))
         else:
@@ -44,12 +48,12 @@ def paso(n):
     elif n == "armar_voz":
         correr(PIPE / "armar_voz.py")
     elif n == "sincronizar":
-        if Path("claves.json").exists():
+        if Path(config.arch("claves.json")).exists():
             correr(PIPE / "sincronizar.py")
         else:
-            print("\n=== sincronizar: no hay claves.json, queda proporcional")
+            print(f"\n=== sincronizar: no hay {config.arch('claves.json')}, queda proporcional")
     elif n == "render":
-        for f in glob.glob("scene*.mp4"):
+        for f in glob.glob(f"{config.PRE}scene*.mp4"):
             os.remove(f)
         correr(PIPE / "render.py", "video.html")
     elif n == "sonido":

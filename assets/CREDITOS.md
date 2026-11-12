@@ -7,4 +7,5 @@
 | `sfx/kenney_interfaceSounds` | Kenney, vía OpenGameArt | CC0 | No |
 | `sfx/swishes`, `sfx/100-CC0-SFX_0`, `sfx/sfx_100_v2`, `sfx/UI_SFX_Set` | OpenGameArt | CC0 | No |
 | Modelo Chatterbox (no está en el repo) | Resemble AI | MIT | No |
+| Modelo Kokoro v1.0, voz `am_michael` (voz en inglés, no está en el repo) | hexgrad / kokoro-onnx | Apache 2.0 | No |
 | `tano.js`, dibujos y animaciones | Propios del canal | — | — |

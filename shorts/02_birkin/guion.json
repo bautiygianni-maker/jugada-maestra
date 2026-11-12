@@ -18,5 +18,24 @@
   "So there are never enough. Resold, they're worth double... and the original sold for ten million dollars.",
   "That's why, out of every hundred euros it sells, Hermès keeps forty-one. It doesn't sell bags. It sells the privilege of being chosen."
  ],
- "numeros": {"13500": "trece mil quinientos", "13.500": "trece mil quinientos", "2025": "dos mil veinticinco", "18": "dieciocho", "10": "diez", "100": "cien", "41": "cuarenta y uno"}
+ "numeros": {
+  "13500": "trece mil quinientos",
+  "13.500": "trece mil quinientos",
+  "2025": "dos mil veinticinco",
+  "18": "dieciocho",
+  "10": "diez",
+  "100": "cien",
+  "41": "cuarenta y uno"
+ },
+ "numeros_en": {
+  "13,500": "thirteen thousand five hundred",
+  "2025": "twenty twenty-five",
+  "18": "eighteen",
+  "10": "ten",
+  "100": "hundred",
+  "41": "forty-one"
+ },
+ "pronunciacion_en": {
+  "Hermès": "Air-mez"
+ }
 }
