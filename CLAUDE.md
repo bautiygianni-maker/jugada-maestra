@@ -5,7 +5,7 @@ Canal de YouTube "Jugada Maestra": Shorts que explican la jugada genial detrás 
 ## Antes de cualquier tarea
 1. Leer `docs/APRENDIZAJES.md`: **reglas obligatorias** que salen de correcciones del usuario. Ninguna se puede romper.
 2. Leer `docs/WORKFLOW_Short.md` (procedimiento) y `docs/ROADMAP_calidad.md` (qué mejorar en el próximo Short).
-3. `docs/RESUMEN_canal.md` tiene el contexto completo del canal (nicho, estrategia, personaje, voz, historia).
+3. `docs/RESUMEN_canal.md` tiene el contexto completo del canal (nicho, estrategia, personaje, voz, historia); `docs/TEMARIO.md`, los próximos temas.
 
 ## División del trabajo
 - El **guion** (ideas, datos con fuentes, `guion.json`, `claves.json`) se hace y aprueba en el chat de Claude del proyecto. Si llega un guion sin aprobar, preguntar antes de producir.

@@ -30,16 +30,7 @@
   - 3 recortes del largo los martes, jueves y sábados, reeditados más rápido y vinculados con la función "video relacionado".
   - Shorts originales el resto de los días, para probar temas. El que mejor funcione se convierte en el próximo video largo.
 - **Reglas de cada Short:** tiene que funcionar solo, sin depender del video largo. Gancho en el segundo 1, cambio visual cada 1 o 2 segundos, subtítulos grandes, mucho diseño de sonido y una pregunta al final para generar comentarios.
-- **Próximos temas:**
-  1. Hermès y la Birkin
-  2. El pancho de Costco
-  3. El recorrido de IKEA
-  4. McDonald's como inmobiliaria
-  5. Rolex sin stock
-  6. Netflix
-  7. Apple y el cargador
-  8. Red Bull y los deportes extremos
-  9. Mercado Libre contra eBay
+- **Próximos temas:** desde el 13/11/2026 el temario vive en `docs/TEMARIO.md`: temas **actuales y más rebuscados** (pedido del usuario), con GTA 6 primero (sale el 19/11/2026). Ya hechos: Ferrari, Hermès Birkin, Costco.
 
   **Verificar los datos antes de guionar cada uno.**
 
