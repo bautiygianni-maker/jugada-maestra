@@ -35,7 +35,8 @@ def dispositivo():
 
 def lanzar_chrome(playwright):
     # WebGL por software (SwiftShader) para el mundo 3D: funciona igual sin placa de video
-    args = {"args": ["--no-sandbox", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]}
+    args = {"args": ["--no-sandbox", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist",
+                     "--allow-file-access-from-files"]}  # imágenes locales como textura WebGL
     if CHROME:
         args["executable_path"] = CHROME
     return playwright.chromium.launch(**args)
@@ -53,6 +54,23 @@ def arch(nombre):
 
 
 VOZ_PISTA = f"voz_{IDIOMA}.wav"
+
+
+def pronunciar(G, texto):
+    """Cambia siglas o nombres por cómo los tiene que decir la voz (clave "pronunciar" del guion, por idioma).
+    Ej.: {"es": {"GTA": "ge te a"}}. Solo afecta a la voz; los subtítulos muestran el texto original."""
+    import re
+    for k, v in G.get("pronunciar", {}).get(IDIOMA, {}).items():
+        texto = re.sub(rf"\b{re.escape(k)}\b", v, texto)
+    return texto
+
+
+def despronunciar(G, texto):
+    """Lo inverso, para comparar transcripciones: "ge te a" -> "GTA"."""
+    import re
+    for k, v in G.get("pronunciar", {}).get(IDIOMA, {}).items():
+        texto = re.sub(re.escape(v), k, texto, flags=re.I)
+    return texto
 
 
 def numeros(G):

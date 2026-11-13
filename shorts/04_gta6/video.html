@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Short GTA 6</title>
+<style>
+/* Short #4 · primer Short en 3D (assets/mundo3d.js). Paleta del canal sobre noche: amarillo, rojo, verde dinero. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+body{font-family:'Inter Display','Inter',sans-serif}
+#gl{position:absolute;inset:0;z-index:0}
+.topfade{position:absolute;left:0;right:0;top:0;height:600px;z-index:1;background:linear-gradient(rgba(5,6,15,.8),rgba(5,6,15,0))}
+.botfade{position:absolute;left:0;right:0;bottom:0;height:420px;z-index:1;background:linear-gradient(rgba(5,6,15,0),rgba(5,6,15,.7))}
+.scene{position:absolute;inset:0;visibility:hidden;overflow:hidden;z-index:2}
+.abs{position:absolute}.center{left:0;right:0;text-align:center}
+#vig{position:absolute;inset:0;z-index:40;pointer-events:none;background:radial-gradient(ellipse 80% 65% at 50% 48%,rgba(0,0,0,0) 55%,rgba(0,0,0,.6) 100%)}
+#grain{position:absolute;inset:-64px;z-index:41;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-size:256px 256px}
+#bar{position:absolute;top:0;left:0;height:10px;background:#F5B82E;z-index:50;width:0}
+/* subtítulos palabra por palabra (los arma sincronizar.py desde el guion + tiempos de Whisper) */
+#subs{position:absolute;left:60px;right:60px;top:230px;z-index:30;text-align:center;font-weight:900;font-size:72px;line-height:1.18;color:#fff;text-shadow:0 5px 20px rgba(0,0,0,.9)}
+#subs .w{display:inline-block;margin:0 .12em}
+#subs .w.k{background:#F5B82E;color:#14161A;padding:0 .16em;border-radius:12px;text-shadow:none;box-shadow:0 0 34px rgba(245,184,46,.55)}
+/* rótulos */
+.pill{display:inline-block;background:rgba(20,22,26,.88);color:#fff;font-weight:800;font-size:40px;padding:14px 32px;border-radius:999px;border:3px solid #F5B82E}
+.chip{display:inline-block;background:#F5B82E;color:#14161A;font-weight:900;font-size:46px;letter-spacing:3px;padding:14px 30px;border-radius:999px}
+.sello{display:inline-block;border:16px solid #FF4A3D;color:#FF4A3D;font-weight:900;font-size:120px;line-height:1;padding:16px 40px;border-radius:26px;background:rgba(10,12,24,.85);transform:rotate(-8deg);box-shadow:0 0 50px rgba(255,74,61,.45)}
+.final{display:inline-block;background:#fff;color:#14161A;font-weight:900;font-size:66px;line-height:1.1;padding:22px 44px;border-radius:28px;border:8px solid #000}
+.cue{position:absolute;width:0;height:0}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes slam{0%{transform:scale(2.6);opacity:0}55%{transform:scale(.92);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes stampK{0%{transform:scale(3);opacity:0}60%{transform:scale(.9);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes hide{0%{opacity:1}100%{opacity:0}}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-14px,8px)}50%{transform:translate(12px,-8px)}75%{transform:translate(-8px,4px)}}
+.a{animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+</style>
+</head>
+<body>
+<div id="gl"></div><div class="topfade"></div><div class="botfade"></div>
+<div id="subs"></div>
+<div id="bar"></div><div id="vig"></div><div id="grain"></div>
+
+<!-- 1 · HOOK: 13 años... sin apuro -->
+<section class="scene" data-start="0" data-end="5">
+  <i class="cue a" style="animation:pop .1s 0s both" data-sfx="riser"></i>
+  <i class="cue a" style="animation:pop .1s 1.2s both" data-sfx="slam+boom"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s 1.25s both" data-sfx="pop"><span class="pill">GTA V 2013 → GTA VI 2026</span></div>
+  <i class="cue a" style="animation:pop .1s 3.4s both" data-sfx="scratch"></i>
+</section>
+
+<!-- 2 · ENTONCES: Tano se infiltra en Rockstar -->
+<section class="scene" data-start="5" data-end="8.5">
+  <div class="abs center a" style="top:1640px;animation:slam .35s .1s both" data-sfx="slam"><span class="chip" data-en="MISSION #004 · ROCKSTAR">MISIÓN #004 · ROCKSTAR</span></div>
+  <i class="cue a" style="animation:pop .1s .9s both" data-sfx="pop+sparkle"></i>
+  <i class="cue a" style="animation:pop .1s 1.6s both" data-sfx="click"></i>
+</section>
+
+<!-- 3 · GTA V: 230 millones de copias -->
+<section class="scene" data-start="8.5" data-end="14.5">
+  <i class="cue a" style="animation:pop .1s .1s both" data-sfx="whoosh"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s .4s both" data-sfx="pop"><span class="pill" data-en="GTA V · September 2013">GTA V · septiembre 2013</span></div>
+  <i class="cue a" style="animation:pop .1s 2.6s both" data-sfx="riser"></i>
+  <div class="abs center a" style="top:1380px;animation:shake .4s 4.65s both"><div class="a" style="animation:slam .4s 4.6s both" data-sfx="slam+boom"><span class="chip" style="font-size:64px;background:#3DDC84" data-en="+230 MILLION COPIES">+230 MILLONES DE COPIAS</span></div></div>
+</section>
+
+<!-- 4 · POR ESO: 3 generaciones + dinero virtual -->
+<section class="scene" data-start="14.5" data-end="22">
+  <i class="cue a" style="animation:pop .1s 2.0s both" data-sfx="ding"></i>
+  <i class="cue a" style="animation:pop .1s 2.6s both" data-sfx="ding"></i>
+  <i class="cue a" style="animation:pop .1s 3.2s both" data-sfx="ding+boom"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s 3.3s both,hide .2s 6s forwards" data-sfx="pop"><span class="pill" data-en="3 console generations">3 generaciones de consolas</span></div>
+  <i class="cue a" style="animation:pop .1s 6.0s both" data-sfx="cash+coin"></i>
+  <div class="abs center a" style="top:1460px;animation:slam .35s 6.1s both" data-sfx="slam"><span class="chip" style="background:#3DDC84;font-size:56px" data-en="GTA ONLINE: VIRTUAL MONEY">GTA ONLINE: DINERO VIRTUAL</span></div>
+</section>
+
+<!-- 5 · ENTONCES: 2 atrasos y aun así récord -->
+<section class="scene" data-start="22" data-end="31">
+  <i class="cue a" style="animation:pop .1s 1.3s both" data-sfx="error"></i>
+  <i class="cue a" style="animation:pop .1s 1.9s both" data-sfx="error"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s 2.0s both,hide .2s 3.8s forwards" data-sfx="pop"><span class="pill" data-en="2 delays">2 atrasos</span></div>
+  <i class="cue a" style="animation:pop .1s 3.9s both" data-sfx="whoosh+glitch"></i>
+  <i class="cue a" style="animation:pop .1s 4.2s both" data-sfx="riser"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s 5.8s both" data-sfx="pop"><span class="pill" data-en="1st trailer · first 24 hours">1.er tráiler · primeras 24 horas</span></div>
+  <div class="abs center a" style="top:1260px;animation:shake .45s 7.55s both"><div class="a" style="animation:stampK .4s 7.5s both" data-sfx="slam+boom+fanfare"><span class="sello" data-en="WORLD<br>RECORD">RÉCORD<br>MUNDIAL</span></div></div>
+</section>
+
+<!-- 6 · PORQUE: la espera vende -->
+<section class="scene" data-start="31" data-end="44">
+  <i class="cue a" style="animation:pop .1s .2s both" data-sfx="boing"></i>
+  <i class="cue a" style="animation:pop .1s 2.3s both" data-sfx="whoosh"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s 2.6s both,hide .2s 4.6s forwards" data-sfx="pop"><span class="pill" data-en="The line to buy it">La fila para comprarlo</span></div>
+  <div class="abs center a" style="top:1640px;animation:slam .35s 4.8s both,hide .2s 8.4s forwards" data-sfx="slam"><span class="chip" style="font-size:60px" data-en="NOVEMBER 19, 2026">19 DE NOVIEMBRE 2026</span></div>
+  <i class="cue a" style="animation:pop .1s 6.6s both" data-sfx="cash"></i>
+  <i class="cue a" style="animation:pop .1s 8.6s both" data-sfx="riser"></i>
+  <div class="abs center a" style="top:1640px;animation:pop .35s 8.7s both" data-sfx="pop"><span class="pill" data-en="Take-Two (owner of Rockstar) · projection">Take-Two (dueña de Rockstar) · proyección</span></div>
+  <div class="abs center a" style="top:1420px;animation:shake .45s 10.45s both"><div class="a" style="animation:slam .4s 10.4s both" data-sfx="slam+boom+coin"><span class="chip" style="font-size:66px" data-en="$8.2 BILLION">$8.200 MILLONES</span></div></div>
+</section>
+
+<!-- 7 · POR ESO: uno que dura una década -->
+<section class="scene" data-start="44" data-end="51">
+  <i class="cue a" style="animation:pop .1s 1.4s both" data-sfx="pop"></i>
+  <i class="cue a" style="animation:pop .1s 3.3s both" data-sfx="reveal"></i>
+  <div class="abs center a" style="top:1300px;animation:slam .45s 5.6s both" data-sfx="slam+gong"><span class="chip" style="font-size:70px;padding:20px 44px" data-en="ONE GAME = ONE DECADE">1 JUEGO = 1 DÉCADA</span></div>
+  <div class="abs center a" style="top:1560px;animation:pop .35s 6.3s both" data-sfx="ding"><span class="final" data-en="Day one buy?">¿Lo compras el<br>primer día?</span></div>
+</section>
+
+<script src="../../assets/vendor/three.min.js"></script>
+<script src="../../assets/mundo3d.js"></script>
+<script>
+const LANG=new URLSearchParams(location.search).get('lang')||'es';document.documentElement.lang=LANG;
+if(LANG!=='es')document.querySelectorAll(`[data-${LANG}]`).forEach(e=>{e.innerHTML=e.getAttribute(`data-${LANG}`);});
+const EN=LANG==='en';
+const P=M3D.PAL; M3D.init(document.getElementById('gl'));
+const {ease,clamp,lerp}=M3D;
+const LOGO='../../assets/marcas/rockstar.png';
+const miles=n=>EN?n.toLocaleString('en-US'):Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+
+// panel con número grande (contador) y etiqueta
+function panelNum(color,etiqueta){return M3D.panel({ancho:5.6,alto:2.6,color,dibujar(x,W,H,v,sub){
+  x.textAlign='center';x.fillStyle='#b9c3e6';M3D.ajustar(x,etiqueta,W/2,130,W-120,70,800);
+  x.fillStyle=M3D.hex(color);x.shadowColor=M3D.hex(color);x.shadowBlur=34;M3D.ajustar(x,v,W/2,340,W-110,200);x.shadowBlur=0;
+  if(sub){x.fillStyle='#fff';M3D.ajustar(x,sub,W/2,440,W-120,64,800);}}});}
+
+// ---------- 1 · autopista de noche: contador de años 2013 -> 2026
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.autopista(g); M3D.ciudad(g,{n:120});
+  const anios=panelNum(P.amarillo,EN?'YEARS WAITING':'AÑOS ESPERANDO'); anios.position.set(0,6.2,-22); g.add(anios);
+  const caja6=M3D.cajaJuego('VI',0x3a1450,P.rojo); caja6.scale.setScalar(2.6); caja6.position.set(0,3.2,-34); g.add(caja6);
+  const h=M3D.halo(P.rojo,9); h.position.set(0,3.2,-34.5); g.add(h);
+  return {cuadro(t){
+    M3D.camara([[0,[0,1.5,14],[0,4,-30],50],[5,[0,2.6,-6],[0,4.6,-30],42]],t);
+    const y=Math.round(lerp(2013,2026,ease((t-.2)/1.2)));
+    anios.poner(String(y), (y-2013)+(EN?' years':' años'));
+    anios.lookAt(M3D.C.position);
+    caja6.rotation.y=Math.sin(t*1.5)*.5; caja6.position.y=3.2+Math.sin(t*2)*.15;
+    // "no tenía ningún apuro": la caja se aleja
+    caja6.position.z=-34-ease((t-3.4)/1.2)*30; h.position.z=caja6.position.z-.5;
+  }};
+});
+
+// ---------- 2 · Tano llega al estudio
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.ciudad(g,{n:80,desde:-24,calle:18});
+  const est=M3D.tienda({ancho:20,alto:9,letrero:'STUDIO',colorLetrero:P.amarillo}); est.position.set(0,0,-16); g.add(est);
+  const logo=M3D.imagen(LOGO,2.6); logo.position.set(1.25,4.3,-2.4); g.add(logo);
+  const hl=M3D.halo(P.amarillo,5); hl.position.set(1.25,4.3,-2.6); hl.material.opacity=.35; g.add(hl);
+  const ped=M3D.pedestal(P.amarillo,1.6); ped.position.set(0,0,-3); g.add(ped);
+  const tano=M3D.tano(); tano.position.set(0,.3,-3); g.add(tano);
+  return {cuadro(t){
+    M3D.camara([[0,[6,8,16],[0,3,-6],46],[3.5,[.6,3.4,8],[.6,3.1,-3],42]],t);
+    logo.rotation.y=Math.sin(t*1.4)*.25; logo.position.y=4.3+Math.sin(t*2)*.1; logo.scale.setScalar(Math.max(.001,ease((t-.9)/.4))); hl.material.opacity=.35*ease((t-.9)/.4);
+    tano.respirar(t); tano.saludar(t,ease((t-.6)/.35)*(1-ease((t-2.4)/.4))); tano.cejas(t);
+    tano.rotation.y=Math.sin(t*.8)*.2;
+  }};
+});
+
+// ---------- 3 · GTA V: montaña de copias
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.ciudad(g,{n:70,calle:16,desde:-14});
+  const mont=M3D.montanaCajas(520,'V',0x1c2a4a); g.add(mont);
+  const caja=M3D.cajaJuego('V',0x1c2a4a); caja.scale.setScalar(2); caja.position.set(0,2.6,4); g.add(caja);
+  const ped=M3D.pedestal(P.amarillo,1.5); ped.position.set(0,0,4); g.add(ped);
+  const num=panelNum(P.verde,EN?'GTA V · COPIES':'GTA V · COPIAS'); num.position.set(0,7.4,-1); g.add(num);
+  return {cuadro(t){
+    const a=-.4+t*.12; M3D.C.position.set(Math.sin(a)*14,lerp(3,7.5,ease(t/6)),Math.cos(a)*14+4); M3D.C.lookAt(0,lerp(2.6,5.4,ease((t-2.4)/2.6)),0);
+    caja.rotation.y=t*.8; caja.visible=t<2.7; ped.visible=t<2.7;
+    mont.mostrar(ease((t-2.6)/2.2));
+    num.visible=t>2.6; num.scale.setScalar(ease((t-2.6)/.4)); num.lookAt(M3D.C.position);
+    const v=230*ease((t-2.7)/1.9); num.poner('+'+Math.round(v),EN?'MILLION':'MILLONES');
+  }};
+});
+
+// ---------- 4 · tres generaciones de consolas + lluvia de dinero virtual
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.ciudad(g,{n:80,calle:14});
+  const cons=[], anios=['2013','2014','2022'];
+  [-2.7,0,2.7].forEach((x,k)=>{const p=M3D.pedestal([P.cian,P.amarillo,P.rojo][k],1.2);p.position.set(x,0,0);g.add(p);
+    const c=M3D.consola(k,[P.cian,P.amarillo,P.rojo][k]);c.position.set(x,0,0);c.scale.setScalar(.75);g.add(c);cons.push(c);
+    const et=M3D.panel({ancho:1.9,alto:.8,color:[P.cian,P.amarillo,P.rojo][k],dibujar(x2,W,H){x2.fillStyle='#fff';x2.font='900 250px Inter, sans-serif';x2.textAlign='center';x2.fillText(anios[k],W/2,330);}});
+    et.poner(); et.position.set(x,2.9,0); g.add(et); c.et=et;});
+  const bill=M3D.billetes(240,16,10); g.add(bill);
+  const tano=M3D.tano(); tano.position.set(4.6,0,3.4); tano.scale.setScalar(.8); g.add(tano);
+  return {cuadro(t){
+    M3D.camara([[0,[0,4.5,19],[0,2,0],44],[3.4,[0,3.6,14],[0,2,0],44],[7.5,[-3,6,16],[0,3.5,0],46]],t);
+    cons.forEach((c,k)=>{const p=ease((t-2.0-k*.6)/.3);c.encender(p);c.et.scale.setScalar(Math.max(.001,p));c.et.lookAt(M3D.C.position);});
+    bill.cuadro(t-6.0);
+    tano.respirar(t); tano.saludar(t,ease((t-6.1)/.3)); tano.cejas(t); tano.lookAt(M3D.C.position.x,0,M3D.C.position.z);
+  }};
+});
+
+// ---------- 5 · dos atrasos y aun así, récord
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.ciudad(g,{n:110,calle:16});
+  const cal=M3D.panel({ancho:4.6,alto:3,color:P.rojo,dibujar(x,W,H,i){
+    const f=EN?['FALL 2025','MAY 26, 2026','NOV 19, 2026']:['OTOÑO 2025','26 MAYO 2026','19 NOV 2026'];
+    x.fillStyle='#E8483B';x.fillRect(20,20,W-40,150);x.fillStyle='#fff';x.font='900 90px Inter, sans-serif';x.textAlign='center';x.fillText(EN?'RELEASE':'LANZAMIENTO',W/2,128);
+    f.forEach((s,k)=>{const y=290+k*170;x.fillStyle=k<i?'#7d86a6':(k===i?'#fff':'rgba(255,255,255,0)');M3D.ajustar(x,s,W/2,y,W-140,k===i?120:90);
+      if(k<i){x.strokeStyle='#FF4A3D';x.lineWidth=16;x.beginPath();x.moveTo(140,y-35);x.lineTo(W-140,y-35);x.stroke();}});}});
+  cal.position.set(0,4.5,0); cal.scale.setScalar(.8); g.add(cal);
+  // pantalla gigante con el contador de vistas
+  const pant=panelNum(P.amarillo,EN?'VIEWS IN 24 H':'VISTAS EN 24 H'); pant.scale.setScalar(1.5); pant.position.set(0,7.5,-10); g.add(pant);
+  const gente=[]; const ropas=[0xE8483B,0x4FD6FF,0x3DDC84,0xF7893B,0x8E6CFF,0xF4F1EA];
+  for(let k=0;k<40;k++){const p=M3D.persona({ropa:ropas[k%6],piel:[0xE9C9A8,0xC68B59,0x8D5A3B][k%3],pelo:[0x3A2A1A,0x14161A,0xC9A26B][k%3]});
+    p.position.set((M3D.rnd()-.5)*14,0,-2+M3D.rnd()*9); p.lookAt(0,0,-10); g.add(p); gente.push(p);}
+  return {cuadro(t){
+    const i=t<1.3?0:t<1.9?1:2; cal.poner(i); cal.visible=t<3.9; cal.lookAt(M3D.C.position);
+    if(t<3.9) M3D.camara([[0,[0,4.5,11],[0,4.5,0],44],[3.9,[0,4.5,9.5],[0,4.5,0],44]],t);
+    else M3D.camara([[3.9,[0,5,18],[0,6,-10],46],[9,[5,3,10],[0,6.5,-10],40]],t);
+    pant.visible=t>=3.9; const v=90421491*ease((t-4.1)/1.7);
+    pant.poner(miles(Math.round(v)), t>5.8?(EN?'NON-MUSIC VIDEO RECORD':'RÉCORD DE VIDEO NO MUSICAL'):'');
+    gente.forEach((p,k)=>{p.visible=t>=3.9; p.quieto(t+k); p.position.y=t>7.5?Math.abs(Math.sin((t-7.5)*8+k))*.35:0;});
+  }};
+});
+
+// ---------- 6 · la espera vende: la fila, la fecha, el precio, $8.200 M
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.ciudad(g,{n:100,calle:15,desde:-20});
+  const tienda=M3D.tienda({ancho:14,alto:6,letrero:EN?'GAMES':'JUEGOS',colorLetrero:P.rojo}); tienda.position.set(0,0,-14); g.add(tienda);
+  const fila=[]; const ropas=[0xE8483B,0x4FD6FF,0x3DDC84,0xF7893B,0x8E6CFF,0xF4F1EA];
+  for(let k=0;k<34;k++){const p=M3D.persona({ropa:ropas[k%6],piel:[0xE9C9A8,0xC68B59,0x8D5A3B][k%3],pelo:[0x3A2A1A,0x14161A,0xC9A26B][k%3]});
+    p.k=k; p.rotation.y=Math.PI; g.add(p); fila.push(p);}
+  const tano=M3D.tano(); tano.position.set(2.2,0,4); g.add(tano);
+  const precio=M3D.panel({ancho:3.6,alto:1.8,color:P.verde,dibujar(x,W,H){x.fillStyle='#3DDC84';x.shadowColor='#3DDC84';x.shadowBlur=30;x.font='900 260px Inter, sans-serif';x.textAlign='center';x.fillText('$79.99',W/2,340);}});
+  precio.poner(); precio.position.set(-3.6,3.6,-1); g.add(precio);
+  const oro=panelNum(P.amarillo,EN?'TAKE-TWO · EXPECTED REVENUE':'TAKE-TWO · INGRESOS ESPERADOS'); oro.position.set(0,6.4,-6); oro.scale.setScalar(1.15); g.add(oro);
+  const pilas=[];for(let k=0;k<12;k++){const m=M3D.monedas(12+Math.floor(M3D.rnd()*20),.55);const a=k/12*Math.PI*2;m.position.set(Math.cos(a)*5,0,-6+Math.sin(a)*3);m.d=k*.05;g.add(m);pilas.push(m);}
+  return {cuadro(t){
+    M3D.camara([[0,[5,3,12],[1.6,2.2,3],40],[2.3,[5,3,12],[1.6,2.2,3],40],[4.6,[-6,4,16],[0,2,-6],44],[8.4,[-4,4.5,10],[-1,3.5,-4],42],[13,[0,5,12],[0,5.5,-6],42]],t);
+    // Tano se encoge de hombros ("¿por qué no les preocupa?")
+    tano.respirar(t); tano.cejas(t); tano.bi.rotation.z=-ease(t/.3)*(1-ease((t-1.5)/.3))*.9; tano.bd.rotation.z=ease(t/.3)*(1-ease((t-1.5)/.3))*.9;
+    tano.lookAt(M3D.C.position.x,0,M3D.C.position.z);
+    fila.forEach(p=>{const z=-9+p.k*1.15 - Math.max(0,t-2.3)*.35; p.position.set(Math.sin(p.k*.7)*.25,0,z); p.visible=t>2.3&&z>-9.5; (t>2.3)?p.caminar(t+p.k*.3,.6):p.quieto(t);});
+    precio.visible=t>6.6&&t<8.6; precio.scale.setScalar(ease((t-6.6)/.3)); precio.lookAt(M3D.C.position);
+    oro.visible=t>8.6; oro.scale.setScalar(1.15*ease((t-8.6)/.35)); oro.lookAt(M3D.C.position);
+    const v=8200*ease((t-8.8)/1.6); oro.poner('$'+(EN?(v/1000).toFixed(1)+'B':miles(Math.round(v))), EN?'DOLLARS IN ONE YEAR':'MILLONES DE DÓLARES EN UN AÑO');
+    pilas.forEach(m=>{m.visible=t>8.6;m.mostrar(ease((t-8.8-m.d)/1.4));});
+  }};
+});
+
+// ---------- 7 · uno que dura una década
+M3D.escena(g=>{
+  g.add(M3D.grilla(P.amarillo)); M3D.ciudad(g,{n:90,calle:14});
+  const ped=M3D.pedestal(P.amarillo,1.8); g.add(ped);
+  const tano=M3D.tano(); tano.position.set(-1.4,.3,.6); tano.scale.setScalar(.85); g.add(tano);
+  const muchas=[];const nums=['1','2','3','4','5','6','7','8'];
+  for(let k=0;k<8;k++){const c=M3D.cajaJuego(nums[k],[0x3a1450,0x1c2a4a,0x123d2e,0x4a1c1c][k%4],[P.rojo,P.amarillo,P.verde,P.cian][k%4]);c.position.set(-5.6+k*1.6,3.6+Math.sin(k)*.3,-2.5);g.add(c);muchas.push(c);}
+  const una=M3D.cajaJuego('VI',0x3a1450,P.rojo); una.scale.setScalar(2.2); una.position.set(1.2,2.2,.4); g.add(una);
+  const h=M3D.halo(P.amarillo,7); h.position.set(1.2,2.2,0); g.add(h);
+  const luz=new M3D.THREE.SpotLight(0xffe2a8,60,30,.45,.5); luz.position.set(0,12,4); luz.target=una; g.add(luz);
+  return {cuadro(t){
+    M3D.camara([[0,[0,4,13],[0,3,0],44],[3.3,[0,3.4,11],[0,3,0],42],[7,[.8,3,9.5],[0.4,2.6,0],40]],t);
+    muchas.forEach((c,k)=>{const ap=ease((t-1.0-k*.12)/.25), cae=ease((t-3.2)/.5); c.visible=ap>0&&cae<1; c.scale.setScalar(Math.max(.001,ap*(1-cae))); c.rotation.y=t+k; c.position.y=3.6+Math.sin(k)*.3-cae*3;});
+    const u=ease((t-3.3)/.45); una.visible=u>0; una.scale.setScalar(1.6*Math.max(.001,u)); una.rotation.y=Math.sin(t*1.2)*.35; h.visible=u>0; h.material.opacity=.4*u;
+    tano.respirar(t); tano.senalar(ease((t-3.5)/.4)); tano.cejas(t); tano.lookAt(M3D.C.position.x,0,M3D.C.position.z);
+  }};
+});
+
+// ---------- subtítulos: frases cortas que se arman palabra por palabra ----------
+let SUBS=null;
+function frases(lista){const out=[];let cur=[];lista.forEach(w=>{cur.push(w);if(/[.,:;?!…]$/.test(w[1])||cur.length>=5){out.push(cur);cur=[];}});if(cur.length)out.push(cur);return out;}
+const subsEl=document.getElementById('subs'); let subsUlt='';
+function pintarSubs(i,tg){
+  if(!SUBS||!SUBS[i]){subsEl.innerHTML='';return;}
+  const fr=frases(SUBS[i]); let f=null;
+  for(const x of fr){if(tg>=x[0][0]-.05)f=x;}
+  if(!f){subsEl.innerHTML='';return;}
+  const vis=f.filter(w=>tg>=w[0]-.05);
+  // entrada de cada palabra calculada con el tiempo (una animación CSS no la sigue el render cuadro a cuadro)
+  subsEl.innerHTML=vis.map(w=>{const p=Math.min(1,(tg-w[0]+.05)/.16),e=1-Math.pow(1-p,3);
+    return `<span class="w${w[2]?' k':''}" style="opacity:${e.toFixed(2)};transform:translateY(${(14*(1-e)).toFixed(1)}px) scale(${(.7+.3*e).toFixed(3)})">${w[1].replace(/[.,:;]$/,'')}</span>`;}).join(' ');
+}
+
+// grano
+(function(){const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');const im=x.createImageData(256,256);let s=9;for(let i=0;i<im.data.length;i+=4){s=(s*16807)%2147483647;const v=s/2147483647*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255;}x.putImageData(im,0,0);document.getElementById('grain').style.backgroundImage=`url(${c.toDataURL()})`;})();
+
+// ---------- línea de tiempo (igual que los Shorts anteriores) ----------
+const scenes=[...document.querySelectorAll('.scene')].map(el=>({el,s:+el.dataset.start,e:+el.dataset.end}));
+let TOTAL=scenes[scenes.length-1].e; scenes.forEach(sc=>{sc.ns=sc.s;sc.ne=sc.e;});
+window.setTimeline=function(tl){tl.escenas.forEach((x,i)=>{scenes[i].ns=x[0];scenes[i].ne=x[1];scenes[i].an=tl.anclas?tl.anclas[i]:null;});TOTAL=tl.total;window.TOTAL=TOTAL;SUBS=tl.subs||null;};
+function interp(pts,x,from,to){if(x<=pts[0][from])return pts[0][to]+(x-pts[0][from]);for(let k=1;k<pts.length;k++){const a=pts[k-1],b=pts[k];if(x<=b[from])return a[to]+(x-a[from])*(b[to]-a[to])/(b[from]-a[from]);}const z=pts[pts.length-1];return z[to]+(x-z[from]);}
+document.getAnimations().forEach(a=>a.pause());
+scenes.forEach(sc=>sc.anims=sc.el.getAnimations({subtree:true}));
+function local(sc,t){return sc.an?interp(sc.an,t-sc.ns,1,0):(t-sc.ns)*((sc.e-sc.s)/(sc.ne-sc.ns));}
+function toGlobal(sc,lt){return sc.ns+(sc.an?interp(sc.an,lt,0,1):lt*((sc.ne-sc.ns)/(sc.e-sc.s)));}
+window.cues=function(){const out=[];scenes.forEach((sc,i)=>{if(i>0)out.push({t:sc.ns,sfx:'whoosh',gain:.9});
+  sc.el.querySelectorAll('[data-sfx]').forEach(el=>{const an=el.getAnimations()[0];if(!an)return;out.push({t:+toGlobal(sc,an.effect.getTiming().delay/1000).toFixed(3),sfx:el.dataset.sfx,gain:1});});});
+  // contadores y eventos del 3D
+  for(let k=1;k<=8;k++)out.push({t:+toGlobal(scenes[0],.2+k*.15).toFixed(3),sfx:'tick',gain:.7});
+  for(let k=1;k<=8;k++)out.push({t:+toGlobal(scenes[2],2.7+k*.22).toFixed(3),sfx:'tick',gain:.6});
+  for(let k=1;k<=7;k++)out.push({t:+toGlobal(scenes[4],4.1+k*.24).toFixed(3),sfx:'tick',gain:.6});
+  for(let k=1;k<=6;k++)out.push({t:+toGlobal(scenes[5],8.8+k*.26).toFixed(3),sfx:'coin',gain:.6});
+  for(let k=0;k<8;k++)out.push({t:+toGlobal(scenes[6],1.0+k*.12).toFixed(3),sfx:'pop',gain:.45});
+  out.push({t:+toGlobal(scenes[6],3.2).toFixed(3),sfx:'whoosh',gain:.8});
+  return out.sort((a,b)=>a.t-b.t);};
+window.setTime=function(t){
+  document.getElementById('bar').style.width=(Math.min(t/TOTAL,1)*1080)+'px';
+  const f=Math.round(t*30);document.getElementById('grain').style.transform=`translate(${(f*37)%64-32}px,${(f*53)%64-32}px)`;
+  let activa=scenes.length-1;
+  scenes.forEach((sc,i)=>{const on=t>=sc.ns&&t<sc.ne;sc.el.style.visibility=on?'visible':'hidden';if(on){activa=i;sc.anims.forEach(a=>a.currentTime=local(sc,t)*1000);}});
+  pintarSubs(activa,t);
+  M3D.render(activa,local(scenes[activa],t));
+};
+window.TOTAL=TOTAL; setTime(0);
+</script>
+</body>
+</html>

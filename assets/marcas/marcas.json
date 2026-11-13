@@ -4,6 +4,15 @@
   "fuente": "https://commons.wikimedia.org/wiki/File:Costco_Wholesale_logo_2010-10-26.svg",
   "licencia": "verificar en la página de Commons",
   "autor": "?",
-  "nota": "Marca registrada de su dueño. Uso editorial para identificar a la empresa; sin modificarla."
+  "nota": "Marca registrada de su dueño. Uso editorial para identificar a la empresa; sin modificarla.",
+  "png": "costco.png"
+ },
+ "rockstar": {
+  "archivo": "rockstar.svg",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Rockstar_Games_Logo.svg",
+  "licencia": "Public domain",
+  "autor": "Take-Two Interativa de",
+  "nota": "Marca registrada de su dueño. Uso editorial para identificar a la empresa; sin modificarla.",
+  "png": "rockstar.png"
  }
 }

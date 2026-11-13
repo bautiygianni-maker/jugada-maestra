@@ -26,6 +26,7 @@ NUM = config.numeros(G)
 
 
 def norm(t):
+    t = config.despronunciar(G, t)
     for k, v in sorted(NUM.items(), key=lambda kv: -len(kv[0])):
         t = re.sub(rf"\b{k}\b", v, t)
     t = unicodedata.normalize("NFD", t.lower())

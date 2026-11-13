@@ -51,6 +51,7 @@ num = config.numeros(G)
 
 
 def norm(t, invertir=False):
+    t = config.despronunciar(G, t)
     if invertir:  # el guion tiene números en letras; Whisper los escribe en cifras
         for k, v in sorted(num.items(), key=lambda kv: -len(kv[1])):
             t = t.replace(v, k)
@@ -60,7 +61,7 @@ def norm(t, invertir=False):
 
 
 # grafías de Whisper para marcas (ej. "Cosco" por "Costco"); solo si las líneas sueltas ya transcriben bien la marca
-alias = G.get("alias_asr", {})
+alias = G.get("alias_asr" if L == "es" else f"alias_asr_{L}", G.get("alias_asr", {}) if L == "es" else {})
 ref, hyp = norm(" ".join(G[L]), True), [alias.get(w, w) for w in norm(txt)]
 d = np.arange(len(hyp) + 1)
 for i, r in enumerate(ref, 1):

@@ -57,3 +57,17 @@ idx[marca] = {"archivo": f"{marca}{ext}", "fuente": pagina, "licencia": lic, "au
               "nota": "Marca registrada de su dueño. Uso editorial para identificar a la empresa; sin modificarla."}
 json.dump(idx, open(idx_f, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"{DEST / (marca + ext)}  ({len(datos)//1024} KB) · licencia: {lic}")
+
+# PNG transparente de 1024 px: el mundo 3D lo usa como textura (un SVG en canvas a veces sale incompleto)
+from playwright.sync_api import sync_playwright
+sys.path.insert(0, str(RAIZ / "pipeline")); import config
+html = DEST / "_png.html"
+html.write_text(f'<body style="margin:0;background:transparent"><img id="i" src="{marca}{ext}" style="width:1024px;display:block"></body>')
+with sync_playwright() as p:
+    b = config.lanzar_chrome(p); pg = b.new_page(viewport={"width": 1024, "height": 1024})
+    pg.goto(html.as_uri()); pg.wait_for_timeout(500)
+    pg.locator("#i").screenshot(path=str(DEST / f"{marca}.png"), omit_background=True); b.close()
+html.unlink()
+idx[marca]["png"] = f"{marca}.png"
+json.dump(idx, open(idx_f, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print("PNG para el 3D:", DEST / f"{marca}.png")

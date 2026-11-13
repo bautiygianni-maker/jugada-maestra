@@ -21,7 +21,8 @@ El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una an
 | Short | Mejoras | Estado |
 |---|---|---|
 | #3 Costco | Look (1) + zoom de cámara (2, parcial) + **biblioteca de sonidos Mixkit** | hecho |
-| #4 | **Salto a 3D** (`assets/mundo3d.js`, ver `docs/REFERENCIA_3D.md`): Tano 3D low-poly, ciudad neón, pedestal, paneles holográficos, cámara en movimiento, subtítulos palabra por palabra (9). Tano 3D ya es un rig (4): sumar boca con la voz (6) | próximo (prueba lista: `shorts/_prueba3d`) |
+| #4 GTA 6 | **Salto a 3D** (`assets/mundo3d.js`): Tano 3D low-poly, ciudad neón, pedestales, paneles holográficos, cámara en movimiento, **subtítulos palabra por palabra automáticos (9)**, logo real | **hecho** |
+| #5 | Boca de Tano 3D con la voz (6) + transiciones entre planos (3) + capa 3D renderizada una sola vez para los dos idiomas (velocidad) | próximo |
 | #5 | **Transiciones (3)** + cámara completa (2): paneo, desenfoque de fondo, whip-pan con whoosh | |
 | #6 | **Tano actúa (5)**: poses, caminar, reacciones; primer **escenario** reutilizable (7) | |
 | #7 | **Subtítulos palabra por palabra (9)** + retención (R1–R4) | |
@@ -34,7 +35,7 @@ El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una an
 | R2 | **Pregunta abierta temprana** ("y lo más raro viene al final") que se cierra en el clímax | pendiente |
 | R3 | **Interrupción de patrón** cada 3–5 s: cambio de fondo, zoom brusco, scratch, freeze-frame | pendiente |
 | R4 | Miniatura y primer cuadro iguales (la imagen del hook es la portada) | pendiente |
-| R5 | **Logo real de la marca** en el hook o en "me infiltré en…" (reconocimiento instantáneo) | desde #4 |
+| R5 | **Logo real de la marca** en el hook o en "me infiltré en…" (reconocimiento instantáneo) | **hecho · Short #4** |
 
 ## Mejoras, en orden sugerido
 | # | Mejora | Esfuerzo | Estado |
@@ -42,10 +43,10 @@ El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una an
 | 1 | **Look cinematográfico:** paleta por Short, glow en elementos clave, viñeta, grano sutil, sombras suaves (CSS filters / capas) | Bajo | **hecho · Short #3** (paleta ketchup/mostaza, `.glow`, `#vig`, `#grain`, `.soft`) |
 | 2 | **Cámara:** zoom lento continuo por escena, paneos, desenfoque de fondo (DOF) al destacar un objeto | Bajo | parcial · Short #3 (zoom lento `.cam` por escena; falta paneo y DOF) |
 | 3 | **Transiciones:** glitch/RGB-split, whip-pan con desenfoque de movimiento, match-cut | Bajo | pendiente |
-| 4 | **Tano en partes (rig):** cabeza, ojos (parpadeo), cejas, boca (abre/cierra con la voz), brazos, piernas, cola | Alto, una vez | pendiente |
+| 4 | **Tano en partes (rig):** cabeza, ojos (parpadeo), cejas, boca (abre/cierra con la voz), brazos, piernas, cola | Alto, una vez | **hecho en 3D · Short #4** (falta boca) |
 | 5 | **Tano actúa:** poses (señalar, sorpresa, pensar, celebrar), caminar, globos de pensamiento | Medio | pendiente |
 | 6 | **Boca sincronizada con la voz** (amplitud del audio → apertura de boca) | Medio | pendiente |
 | 7 | **Biblioteca de escenarios** vectoriales reutilizables (tienda, oficina, tribunal, fábrica, calle) | Alto, incremental | pendiente |
 | 8 | **Migrar a Remotion** (React): springs con física, motion blur, mejor composición. Evaluar cuando 1–6 estén hechas | Alto | evaluar |
-| 9 | **Subtítulos palabra por palabra** con resaltado (marcas de Whisper) | Medio | pendiente |
+| 9 | **Subtítulos palabra por palabra** con resaltado (marcas de Whisper) | Medio | **hecho · Short #4** |
 | 10 | Versión en inglés automática desde el mismo `video.html` (textos en `data-en`, voz Kokoro) | Medio | **hecho · Short #3** |

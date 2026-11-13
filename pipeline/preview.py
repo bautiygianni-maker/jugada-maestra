@@ -13,6 +13,9 @@ with sync_playwright() as p:
     errs=[]; pg.on("pageerror",lambda e:errs.append(str(e)))
     lang=sys.argv[4] if len(sys.argv)>4 else "es"
     pg.goto(Path(os.getcwd(), sys.argv[1]).as_uri()+f"?lang={lang}"); pg.wait_for_timeout(400)
+    pg.wait_for_function("!window.M3D || M3D.pendientes === 0", timeout=15000)
+    tl=Path("timeline.json" if lang=="es" else f"{lang}_timeline.json")
+    if tl.exists(): pg.evaluate(f"setTimeline({tl.read_text()})")  # con voz ya armada: tiempos y subtítulos reales
     ims=[]
     for t in ts:
         pg.evaluate(f"setTime({t})"); pg.screenshot(path="_preview.png")

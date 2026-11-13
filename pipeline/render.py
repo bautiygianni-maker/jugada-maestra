@@ -19,6 +19,7 @@ with sync_playwright() as p:
     pg = b.new_page(viewport={"width": 1080, "height": 1920})
     pg.goto(Path(HERE, PAGINA).as_uri() + f"?lang={config.IDIOMA}")
     pg.wait_for_timeout(500)
+    pg.wait_for_function("!window.M3D || M3D.pendientes === 0", timeout=15000)  # logos e imágenes del mundo 3D
     pg.evaluate(f"setTimeline({json.dumps(TL)})")
     if pg.evaluate("typeof cues") == "function":
         json.dump(pg.evaluate("cues()"), open(f"{HERE}/{A('cues.json')}", "w"), indent=0)

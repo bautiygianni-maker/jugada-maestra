@@ -9,7 +9,8 @@ Uso:
 import json, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import config
-LINEAS = json.load(open("guion.json", encoding="utf-8"))[config.IDIOMA]
+_G = json.load(open("guion.json", encoding="utf-8"))
+LINEAS = [config.pronunciar(_G, x) for x in _G[config.IDIOMA]]  # siglas dichas como corresponde (ver guion "pronunciar")
 SOLO = [int(x) for x in sys.argv[1].split(",")] if len(sys.argv) > 1 else None
 SEMILLAS = [int(x) for x in sys.argv[2].split(",")] if len(sys.argv) > 2 else [42, 7]
 EXAGERACION, CFG = 0.7, 0.4  # valores aprobados para Tano (ver docs/APRENDIZAJES.md)

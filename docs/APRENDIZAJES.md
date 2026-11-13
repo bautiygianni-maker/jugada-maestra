@@ -7,6 +7,7 @@ Formato: regla concreta · por qué · origen.
 - **Causalidad de South Park:** cada escena se conecta con la anterior con "pero" o "entonces" (o "por eso"), nunca con "y después". Si dos escenas se unen con "y", una sobra o hay que reescribirla. · Pedido del usuario. · Short #2
 - **Arco completo en cada Short:** Hook (0–3 s, la paradoja) → Conflicto (por qué parece absurdo o qué está en juego) → Clímax (la revelación o el número más fuerte) → Payoff (la jugada explicada en una frase memorable) → pregunta final. · Pedido del usuario. · Short #2
 - Antes de producir, escribir el guion como cadena de beats "PERO / ENTONCES" y verificar que no haya ningún "y después". · Short #2
+- **El conector no siempre se dice en voz alta:** la causalidad tiene que estar, pero si el "pero" suena forzado se saca y queda implícito (Short #4, beat 3: "GTA cinco salió en dos mil trece…", sin "Pero"). · Pedido del usuario. · Short #4
 
 ## Hook (obligatorio desde el Short #3)
 - **El hook abre una brecha de curiosidad:** muestra algo que el espectador cree entender y le agrega una contradicción que no puede resolver solo ("casi no gana nada con esto... y es su mejor arma"). Tiene que dar ganas de saber el porqué, no dar el dato completo. · Pedido del usuario. · Short #3
@@ -25,6 +26,7 @@ Formato: regla concreta · por qué · origen.
 - Tipos nuevos para `data-sfx`: `reveal`, `fanfare`, `fail` (trombón triste), `scratch` (vinilo), `boing`, `drumroll`, `badum`, `heartbeat`, `laugh`, `cash`, `sparkle`, `typing`, `camera`. Whoosh y riser se alinean por su pico al corte/golpe. · Short #3
 - Nada de sonidos "meme" con dueño (vine boom de la app, audios de TikTok, canciones de moda): los temas virales se agregan desde la app de YouTube al subir. · Short #3
 - Música: Kevin MacLeod (incompetech.com, CC BY 4.0), volumen 0,10 con sidechain suave. **Crédito obligatorio en la descripción.** Temas "virales" de Shorts solo se pueden agregar desde la app de YouTube al subir. · Short #2
+- **Siglas en la voz en español:** Chatterbox lee mal "GTA" ("acta", "gata", "secta"). Se escribe la pronunciación en `guion.json` → `"pronunciar": {"es": {"GTA": "ge te a"}}`: solo cambia lo que dice la voz; subtítulos y QC usan el texto original. Igual hicieron falta 5 semillas para la línea 1 y 5. Kokoro (inglés) dice bien las siglas. · Short #4
 - Nombres de marca: Whisper puede oír "el mes" por "Hermès". Si una toma falla solo en la marca, generar 2 semillas más (`voz_lineas.py 2,7 11,23`) antes de aceptarla. · Short #2
 
 - Whisper escribe "Cosco" por "Costco" en el video mezclado aunque las líneas sueltas digan "Costco". Si la marca se transcribe bien en las líneas sueltas, se agrega el alias en `guion.json` (`"alias_asr": {"cosco": "costco"}`) para que `qc.py` no lo cuente como error. Nunca subir el umbral del 5 %. · Short #3
@@ -35,6 +37,13 @@ Formato: regla concreta · por qué · origen.
 - Voz en inglés: Kokoro v1.0 `am_michael` (la aprobada en el Ferrari EN). Mismo guion, misma animación: los textos de pantalla van en `data-en`, los ancla en `en_claves.json`. · Short #3
 - Los textos en inglés suelen ser más largos: mirar las capturas con `preview.py ... en` y achicar solo en inglés con `html[lang=en] .clase{...}`. En el Short #3 se cortaban "TODAY: OVER $4", "RAISE IT?" y "TO COME BACK.". · Short #3
 - En inglés los miles van con coma ($5,320); en español, como hasta ahora. · Short #3
+
+## Mundo 3D (desde el Short #4)
+- Estilo y técnica en `docs/REFERENCIA_3D.md` (referencia del usuario: TikTok @emptymind63). Técnicas sí, estética ajena no: Tano 3D y paleta del canal. · Short #4
+- **Subtítulos palabra por palabra automáticos**: `sincronizar.py` alinea el texto del guion con los tiempos de Whisper (`timeline.json` → `subs`) y resalta las palabras de `claves.json`. Su entrada se calcula con el tiempo, nunca con animación CSS (el render la captura a medias). · Short #4
+- `InstancedMesh` (montañas de cajas, monedas, billetes) con `frustumCulled = false`: si no, desaparecen cuando la cámara mira hacia arriba. · Short #4
+- Imágenes como textura: Chromium necesita `--allow-file-access-from-files` (ya en `config.lanzar_chrome`) y la textura se crea recién con la imagen cargada (cambiar el tamaño de una textura ya subida la deja cortada). Logos en PNG (`bajar_logo.py` lo genera). · Short #4
+- Formato vertical: todo lo importante entra en un ancho de ~6 unidades a 10–14 de la cámara; los paneles van por debajo de la franja de subtítulos. · Short #4
 
 ## Logos (desde el Short #4)
 - **Se pueden usar logos reales para identificar a la marca** (uso editorial). Tal cual: sin deformarlos, recolorearlos ni animar sus partes; nunca protagonistas de la miniatura; nada que sugiera patrocinio. Productos y diseños protegidos se siguen dibujando genéricos. · Pedido del usuario. · Short #3

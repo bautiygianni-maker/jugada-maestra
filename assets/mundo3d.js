@@ -218,11 +218,18 @@
   M3D.monedas = function (alto = 10, r = .5) {
     const geo = new THREE.CylinderGeometry(r, r, .12, 24);
     const mt = new THREE.MeshStandardMaterial({ color: 0xF5B82E, metalness: .85, roughness: .28, emissive: 0x6b4a00, emissiveIntensity: .4 });
-    const im = new THREE.InstancedMesh(geo, mt, alto); im.castShadow = true;
+    const im = new THREE.InstancedMesh(geo, mt, alto); im.castShadow = true; im.frustumCulled = false;
     const o = new THREE.Object3D();
     for (let k = 0; k < alto; k++) { o.position.set((rnd() - .5) * .06, .06 + k * .125, (rnd() - .5) * .06); o.rotation.y = rnd(); o.updateMatrix(); im.setMatrixAt(k, o.matrix); }
     im.alto = alto; im.mostrar = p => { im.count = Math.max(0, Math.round(alto * clamp(p))); };
     return im;
+  };
+
+  // escribe un texto achicando la letra hasta que entre en el ancho
+  M3D.ajustar = function (x, texto, xc, y, maxW, tam, peso = 900) {
+    let t = tam; x.font = `${peso} ${t}px Inter, sans-serif`;
+    while (x.measureText(texto).width > maxW && t > 20) { t -= 4; x.font = `${peso} ${t}px Inter, sans-serif`; }
+    x.fillText(texto, xc, y);
   };
 
   // panel holográfico con texto (se redibuja con .poner(texto...))
@@ -255,6 +262,78 @@
     }) }));
     cartel.position.set(0, alto - 1.6, fondo / 2 + .06); g.add(cartel);
     return g;
+  };
+
+  // ---------- imágenes (logos) ----------
+  // Se dibujan en un canvas a buena resolución; M3D.pendientes cuenta las que faltan cargar (render.py espera a 0).
+  M3D.pendientes = 0;
+  M3D.imagen = function (src, ancho = 2, alto = null) {
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 1024;
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(ancho, alto || ancho), new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide }));
+    const img = new Image(); M3D.pendientes++;
+    img.onload = () => {
+      // canvas y textura NUEVOS con el tamaño final (cambiar el tamaño de una textura ya subida a la GPU la deja cortada)
+      const r = img.naturalHeight / img.naturalWidth || 1;
+      const c2 = document.createElement('canvas'); c2.width = 1024; c2.height = Math.round(1024 * r);
+      c2.getContext('2d').drawImage(img, 0, 0, c2.width, c2.height);
+      const t2 = new THREE.CanvasTexture(c2); t2.colorSpace = THREE.SRGBColorSpace; t2.anisotropy = 8;
+      m.material.map = t2; m.material.needsUpdate = true; tex.dispose();
+      if (!alto) { m.geometry.dispose(); m.geometry = new THREE.PlaneGeometry(ancho, ancho * r); }
+      M3D.pendientes--;
+    };
+    img.onerror = () => { M3D.pendientes--; console.error('no cargó ' + src); };
+    img.src = src; return m;
+  };
+
+  // caja de juego genérica (sin carátulas reales): color + franja + número grande
+  M3D.cajaJuego = function (texto = 'V', color = 0x1c2a4a, franja = PAL.amarillo) {
+    const tex = lienzo(256, 320, (x, w, h) => {
+      x.fillStyle = hex(color); x.fillRect(0, 0, w, h);
+      x.fillStyle = hex(franja); x.fillRect(0, 0, w, 46);
+      x.fillStyle = '#fff'; x.font = '900 170px Inter, sans-serif'; x.textAlign = 'center'; x.fillText(texto, w / 2, 230);
+    });
+    const lado = mat(0x2a3555);
+    return new THREE.Mesh(new THREE.BoxGeometry(1, 1.25, .16), [lado, lado, lado, lado, new THREE.MeshStandardMaterial({ map: tex, roughness: .5 }), lado]);
+  };
+  // montaña de cajas que crece (InstancedMesh con la misma textura)
+  M3D.montanaCajas = function (n = 400, texto = 'V', color = 0x1c2a4a) {
+    const base = M3D.cajaJuego(texto, color);
+    const im = new THREE.InstancedMesh(base.geometry, base.material, n); im.castShadow = true; im.frustumCulled = false;
+    const o = new THREE.Object3D(), orden = [];
+    for (let k = 0; k < n; k++) {
+      const r = Math.sqrt(rnd()) * 6, a = rnd() * Math.PI * 2;
+      const y = Math.max(0, (6 - r) * 1.25) * rnd() + .1;
+      orden.push({ x: Math.cos(a) * r, z: Math.sin(a) * r, y, rx: (rnd() - .5) * .7, ry: -a + Math.PI / 2 + (rnd() - .5) * .8, rz: (rnd() - .5) * .7 });
+    }
+    orden.sort((p, q) => p.y - q.y);
+    orden.forEach((p, k) => { o.position.set(p.x, p.y, p.z); o.rotation.set(p.rx, p.ry, p.rz); o.updateMatrix(); im.setMatrixAt(k, o.matrix); });
+    im.total = n; im.mostrar = p => { im.count = Math.round(n * clamp(p)); };
+    return im;
+  };
+
+  // consola genérica: 0 = caja ancha, 1 = plana, 2 = torre
+  M3D.consola = function (tipo = 0, luz = PAL.cian) {
+    const g = new THREE.Group();
+    const dims = [[2.2, .55, 1.6], [2.4, .35, 1.7], [.7, 2, 1.6]][tipo];
+    const c = new THREE.Mesh(new THREE.BoxGeometry(...dims), mat([0x1b1f2a, 0x22262f, 0xe8e8ee][tipo], { roughness: .4, metalness: .2 }));
+    c.position.y = dims[1] / 2 + .32; c.castShadow = true; g.add(c);
+    const led = new THREE.Mesh(new THREE.BoxGeometry(tipo === 2 ? .08 : dims[0] * .7, tipo === 2 ? 1.6 : .05, .04), neon(luz, 1));
+    led.position.set(0, dims[1] / 2 + .32, dims[2] / 2 + .02); g.add(led);
+    const h = M3D.halo(luz, 3.5); h.position.copy(led.position); h.material.opacity = 0; g.add(h);
+    g.encender = p => { led.material.color.set(luz).multiplyScalar(lerp(.15, 1, clamp(p))); h.material.opacity = .55 * clamp(p); };
+    g.encender(0);
+    return g;
+  };
+
+  // lluvia de billetes (InstancedMesh), determinista en t
+  M3D.billetes = function (n = 160, area = 14, alto = 16) {
+    const tex = lienzo(128, 64, (x, w, h) => { x.fillStyle = '#3DDC84'; x.fillRect(0, 0, w, h); x.strokeStyle = '#14161A'; x.lineWidth = 6; x.strokeRect(3, 3, w - 6, h - 6); x.fillStyle = '#14161A'; x.font = '900 46px Inter, sans-serif'; x.textAlign = 'center'; x.fillText('$', w / 2, 48); });
+    const im = new THREE.InstancedMesh(new THREE.PlaneGeometry(.8, .4), new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide }), n); im.frustumCulled = false;
+    const ps = []; for (let k = 0; k < n; k++) ps.push({ x: (rnd() - .5) * area, z: (rnd() - .5) * area, d: rnd() * 1.5, v: 2 + rnd() * 2, r: rnd() * 6 });
+    const o = new THREE.Object3D();
+    im.cuadro = t => { ps.forEach((p, k) => { const tt = t - p.d; const y = alto - tt * p.v; o.position.set(p.x + Math.sin(tt * 2 + p.r) * .4, tt < 0 ? -50 : Math.max(.05, y), p.z); o.rotation.set(tt * 3 + p.r, tt * 2, p.r); o.updateMatrix(); im.setMatrixAt(k, o.matrix); }); im.instanceMatrix.needsUpdate = true; };
+    im.cuadro(-10); return im;
   };
 
   window.M3D = M3D;

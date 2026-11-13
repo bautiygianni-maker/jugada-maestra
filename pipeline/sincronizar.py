@@ -47,5 +47,34 @@ for i, ((os_, oe), (ns, ne, _)) in enumerate(zip(ORIG, TL["escenas"])):
     anclas.append(pts)
 
 TL["anclas"] = anclas
+
+# Subtítulos palabra por palabra: el texto es el del guion (no el de Whisper, que se equivoca con
+# marcas y cifras) y los tiempos son los de Whisper, alineados con difflib; lo que no coincide se interpola.
+import difflib
+G = json.load(open("guion.json", encoding="utf-8"))
+claves_norm = {}
+for esc, lt, palabra in CLAVES:
+    claves_norm.setdefault(esc, set()).add(norm(palabra))
+subs = []
+for i, (ns, ne, _) in enumerate(TL["escenas"]):
+    disp = G[config.IDIOMA][i].replace("...", "…").split()
+    tok = [norm(w) for w in disp]
+    wz = [(w, t) for w, t in words if ns - 0.1 <= t < ne]
+    tiempos = [None] * len(tok)
+    for a, b, n in difflib.SequenceMatcher(None, tok, [w for w, _ in wz], autojunk=False).get_matching_blocks():
+        for k in range(n):
+            tiempos[a + k] = wz[b + k][1]
+    conocidos = [(k, t) for k, t in enumerate(tiempos) if t is not None]
+    inicio = (wz[0][1] if wz else ns + 0.1)
+    fin = (wz[-1][1] if wz else ne - 0.5)
+    pts = [(-1, inicio - 0.05)] + conocidos + [(len(tok), fin + 0.3)]
+    for k in range(len(tok)):
+        if tiempos[k] is None:
+            a = max(p for p in pts if p[0] < k); b = min(p for p in pts if p[0] > k)
+            tiempos[k] = a[1] + (b[1] - a[1]) * (k - a[0]) / (b[0] - a[0])
+    for k in range(1, len(tok)):  # siempre en orden
+        tiempos[k] = max(tiempos[k], tiempos[k - 1] + 0.05)
+    subs.append([[round(t, 3), w, tok[k] in claves_norm.get(i + 1, set())] for k, (t, w) in enumerate(zip(tiempos, disp))])
+TL["subs"] = subs
 json.dump(TL, open(config.arch("timeline.json"), "w"), indent=1)
-print("timeline.json con anclas")
+print(config.arch("timeline.json"), "con anclas y subtítulos")

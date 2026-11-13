@@ -1,0 +1,72 @@
+{
+ "tema": "GTA 6: la espera que vende",
+ "es": [
+  "Rockstar tardó trece años en sacar GTA seis... y no tenía ningún apuro.",
+  "Así que me infiltré en Rockstar para entender por qué.",
+  "GTA cinco salió en dos mil trece... y ya vendió más de doscientos treinta millones de copias.",
+  "Por eso no lo dejaron morir: lo relanzaron en tres generaciones de consolas, y GTA Online siguió vendiendo dinero virtual.",
+  "Entonces GTA seis se atrasó dos veces... y aun así, su primer tráiler hizo noventa millones de vistas en un día. Récord mundial.",
+  "¿Por qué no les preocupa? Porque la espera también vende: sale el diecinueve de noviembre, a casi ochenta dólares, y su dueña espera facturar ocho mil doscientos millones de dólares en un año.",
+  "Por eso Rockstar no saca un juego cada dos años. Saca uno... que dura una década."
+ ],
+ "en": [
+  "Rockstar took thirteen years to release GTA six... and they were in no rush.",
+  "So I snuck into Rockstar to find out why.",
+  "GTA five came out in twenty thirteen... and it's sold over two hundred thirty million copies.",
+  "So they kept it alive: they re-released it on three console generations, and GTA Online kept selling virtual money.",
+  "Then GTA six got delayed twice... and still, its first trailer hit ninety million views in one day. A world record.",
+  "Why aren't they worried? Because the wait sells too: it launches November nineteenth, at almost eighty dollars, and its owner expects eight point two billion dollars in a year.",
+  "That's why Rockstar doesn't release a game every two years. It releases one... that lasts a decade."
+ ],
+ "numeros": {
+  "2013": "dos mil trece",
+  "230": "doscientos treinta",
+  "8200": "ocho mil doscientos",
+  "13": "trece",
+  "19": "diecinueve",
+  "80": "ochenta",
+  "90": "noventa",
+  "6": "seis",
+  "5": "cinco",
+  "3": "tres",
+  "2": "dos",
+  "1": "uno"
+ },
+ "numeros_en": {
+  "2013": "twenty thirteen",
+  "230": "two hundred thirty",
+  "19th": "nineteenth",
+  "82": "eight point two",
+  "13": "thirteen",
+  "80": "eighty",
+  "90": "ninety",
+  "6": "six",
+  "5": "five",
+  "3": "three",
+  "2": "two"
+ },
+ "alias_asr": {
+  "v": "cinco",
+  "vi": "seis",
+  "rockstars": "rockstar"
+ },
+ "alias_asr_en": {
+  "v": "five",
+  "vi": "six",
+  "rockstars": "rockstar"
+ },
+ "fuentes": {
+  "13 años": "GTA V salió el 17/9/2013; GTA 6 sale el 19/11/2026 (Take-Two, 9/11/2026)",
+  "230 millones": "Take-Two, trimestre al 30/6/2026: más de 230 M (sold-in)",
+  "tres generaciones": "PS3/360 (2013), PS4/One (2014), PS5/Series (2022)",
+  "dos atrasos": "otoño 2025 -> 26/5/2026 (mayo 2025) -> 19/11/2026 (nov. 2025)",
+  "90 millones": "Guinness: 90.421.491 vistas en 24 h, récord de video no musical (dic. 2023)",
+  "80 dólares": "US$79,99 edición estándar",
+  "8.200 millones": "Take-Two proyecta US$8.200 M de ingresos (Zelnick, 9/11/2026)"
+ },
+ "pronunciar": {
+  "es": {
+   "GTA": "ge te a"
+  }
+ }
+}

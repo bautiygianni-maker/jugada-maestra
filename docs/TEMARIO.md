@@ -6,7 +6,7 @@ Cada tema se verifica en el chat del guion antes de escribirlo; acá queda el á
 
 | # | Tema | Paradoja para el hook | Por qué ahora | Datos ya verificados |
 |---|---|---|---|---|
-| 1 | **GTA 6 y Rockstar** | Tardaron 13 años en hacer GTA 6… porque GTA V no dejaba de darles dinero | Sale el **19/11/2026** | GTA V: más de 230 millones vendidos (Take-Two, jun. 2026). GTA 6: US$79,99 estándar / US$99,99 ultimate. Take-Two proyecta US$8.200 millones de ingresos el próximo año fiscal. Preventas "muy por encima de lo esperado" (Zelnick, 9/11/2026) |
+| 1 | **GTA 6 y Rockstar** (Short #4, hecho) | Tardaron 13 años en hacer GTA 6… porque GTA V no dejaba de darles dinero | Sale el **19/11/2026** | GTA V: más de 230 millones vendidos (Take-Two, jun. 2026). GTA 6: US$79,99 estándar / US$99,99 ultimate. Take-Two proyecta US$8.200 millones de ingresos el próximo año fiscal. Preventas "muy por encima de lo esperado" (Zelnick, 9/11/2026) |
 | 2 | **MrBeast** | Sus videos pierden dinero… y es su mejor negocio | Sigue siendo el youtuber más grande | 2024: la parte de medios facturó ~US$250 M y **perdió ~US$80 M**; Feastables (chocolates) facturó parecido y **ganó más de US$20 M** (Bloomberg, documentos para inversores) |
 | 3 | **Delta y su tarjeta de crédito** | Una aerolínea que gana miles de millones… sin volar un avión | Récord de 2025 | Amex le pagó a Delta **US$8.200 M en 2025** (+11 %); meta de US$10.000 M (informe anual de Delta) |
 | 4 | **Labubu / Pop Mart** | Vende cajas sin que sepas qué hay adentro… y la gente hace fila | Furor 2025 y enfriamiento 2026 | Pop Mart 1.er semestre 2026: RMB 17.170 M (+23,8 %); las ventas online afuera de China cayeron 40–60 % al bajar la fiebre. Ángulo doble: la jugada y su riesgo |
