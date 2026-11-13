@@ -21,7 +21,7 @@ El usuario quiere que cada Short sea mejor que el anterior hasta llegar a una an
 | Short | Mejoras | Estado |
 |---|---|---|
 | #3 Costco | Look (1) + zoom de cámara (2, parcial) + **biblioteca de sonidos Mixkit** | hecho |
-| #4 | **Tano en partes (4) + parpadeo + boca con la voz (6)**: el salto más grande, el personaje deja de ser una figura fija | próximo |
+| #4 | **Salto a 3D** (`assets/mundo3d.js`, ver `docs/REFERENCIA_3D.md`): Tano 3D low-poly, ciudad neón, pedestal, paneles holográficos, cámara en movimiento, subtítulos palabra por palabra (9). Tano 3D ya es un rig (4): sumar boca con la voz (6) | próximo (prueba lista: `shorts/_prueba3d`) |
 | #5 | **Transiciones (3)** + cámara completa (2): paneo, desenfoque de fondo, whip-pan con whoosh | |
 | #6 | **Tano actúa (5)**: poses, caminar, reacciones; primer **escenario** reutilizable (7) | |
 | #7 | **Subtítulos palabra por palabra (9)** + retención (R1–R4) | |

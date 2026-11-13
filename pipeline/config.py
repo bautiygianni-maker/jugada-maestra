@@ -34,7 +34,8 @@ def dispositivo():
 
 
 def lanzar_chrome(playwright):
-    args = {"args": ["--no-sandbox"]}
+    # WebGL por software (SwiftShader) para el mundo 3D: funciona igual sin placa de video
+    args = {"args": ["--no-sandbox", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]}
     if CHROME:
         args["executable_path"] = CHROME
     return playwright.chromium.launch(**args)

@@ -14,7 +14,8 @@ Canal de YouTube "Jugada Maestra": Shorts que explican la jugada genial detrás 
 
 ## Estructura
 - `pipeline/`: `producir.py` (todo en un comando), `voz_lineas.py`, `armar_voz.py`, `sincronizar.py`, `render.py`, `sonido.py`, `mezclar.py`, `qc.py`, `preview.py`, `config.py` (rutas; se pisan con variables `JM_*`).
-- `assets/`: `tano.js` (personaje), `sfx/` (efectos de Mixkit en `sfx/mixkit/` + respaldo CC0; `catalogo.json` por tipo, se regenera con `setup/bajar_sfx_mixkit.py`), `musica/` (Kevin MacLeod, CC BY), `voz/ref_8784.wav`, `CREDITOS.md`.
+- `assets/mundo3d.js` + `assets/vendor/three.min.js`: mundo 3D low-poly desde el Short #4 (Tano 3D, ciudad neón, pedestales, paneles). Ver `docs/REFERENCIA_3D.md`.
+- `assets/`: `tano.js` (personaje 2D), `sfx/` (efectos de Mixkit en `sfx/mixkit/` + respaldo CC0; `catalogo.json` por tipo, se regenera con `setup/bajar_sfx_mixkit.py`), `musica/` (Kevin MacLeod, CC BY), `voz/ref_8784.wav`, `CREDITOS.md`.
 - `shorts/NN_tema/`: `guion.json`, `claves.json`, `video.html`, MP4 final. Los intermedios están en `.gitignore`.
 - `assets/marcas/`: logos reales bajados con `setup/bajar_logo.py` (Wikimedia Commons) + `marcas.json` con fuente y licencia.
 - `modelos/chatterbox/` y `modelos/kokoro/`: modelos de voz ES y EN (no versionados; los baja `setup/instalar.py`).
