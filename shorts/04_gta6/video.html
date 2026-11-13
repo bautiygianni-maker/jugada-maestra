@@ -220,7 +220,7 @@ M3D.escena(g=>{
     p.k=k; p.rotation.y=Math.PI; g.add(p); fila.push(p);}
   const tano=M3D.tano(); tano.position.set(2.2,0,4); g.add(tano);
   const precio=M3D.panel({ancho:3.6,alto:1.8,color:P.verde,dibujar(x,W,H){x.fillStyle='#3DDC84';x.shadowColor='#3DDC84';x.shadowBlur=30;x.font='900 260px Inter, sans-serif';x.textAlign='center';x.fillText('$79.99',W/2,340);}});
-  precio.poner(); precio.position.set(-3.6,3.6,-1); g.add(precio);
+  precio.poner(); precio.position.set(-1.6,3.9,-1); g.add(precio);
   const oro=panelNum(P.amarillo,EN?'TAKE-TWO · EXPECTED REVENUE':'TAKE-TWO · INGRESOS ESPERADOS'); oro.position.set(0,6.4,-6); oro.scale.setScalar(1.15); g.add(oro);
   const pilas=[];for(let k=0;k<12;k++){const m=M3D.monedas(12+Math.floor(M3D.rnd()*20),.55);const a=k/12*Math.PI*2;m.position.set(Math.cos(a)*5,0,-6+Math.sin(a)*3);m.d=k*.05;g.add(m);pilas.push(m);}
   return {cuadro(t){
