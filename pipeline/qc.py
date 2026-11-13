@@ -63,12 +63,22 @@ def norm(t, invertir=False):
 # grafías de Whisper para marcas (ej. "Cosco" por "Costco"); solo si las líneas sueltas ya transcriben bien la marca
 alias = G.get("alias_asr" if L == "es" else f"alias_asr_{L}", G.get("alias_asr", {}) if L == "es" else {})
 ref, hyp = norm(" ".join(G[L]), True), [alias.get(w, w) for w in norm(txt)]
-d = np.arange(len(hyp) + 1)
-for i, r in enumerate(ref, 1):
-    p, d[0] = d.copy(), i
-    for j, h in enumerate(hyp, 1):
-        d[j] = min(p[j] + 1, d[j - 1] + 1, p[j - 1] + (r != h))
-wer = d[-1] / len(ref)
+# Errores por tramos (difflib). Un tramo distinto NO cuenta si es la misma secuencia de letras con otra
+# separación de palabras ("ningún apuro" / "ninguna puro", "no saca" / "nos saca"): eso no se oye en la voz.
+import difflib, re as _re
+def _junta(ws):
+    return _re.sub(r"(.)\1+", r"\1", "".join(ws))
+errores, juntas = 0, []
+for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, ref, hyp, autojunk=False).get_opcodes():
+    if op == "equal":
+        continue
+    if ref[i1:i2] and hyp[j1:j2] and _junta(ref[i1:i2]) == _junta(hyp[j1:j2]):
+        juntas.append(f"{' '.join(ref[i1:i2])} ~ {' '.join(hyp[j1:j2])}")
+        continue
+    errores += max(i2 - i1, j2 - j1)
+if juntas:
+    print("separaciones distintas (no cuentan):", "; ".join(juntas))
+wer = errores / len(ref)
 print(f"error de palabras: {wer:.3f}\ntranscripción: {txt.strip()}")
 if wer > 0.05:
     fallas.append(f"error de palabras {wer:.1%} (máx 5%)")
